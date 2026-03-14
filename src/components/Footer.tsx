@@ -7,7 +7,10 @@ const Footer = () => (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
         <div>
           <Link to="/" className="flex items-center gap-2 mb-4">
-            <img src={logo} alt="FissieE-J Logo" className="h-8 w-auto" />
+            <img src={logo} alt="FissieE-J Logo" className="h-12 w-auto" />
+            <span className="text-lg font-bold text-primary-foreground">
+              FissieE-J Helping Hands <span className="text-gold">Foundation</span>
+            </span>
           </Link>
           <p className="text-sm opacity-80">
             Restoring dignity and inspiring hope for communities across Nigeria.

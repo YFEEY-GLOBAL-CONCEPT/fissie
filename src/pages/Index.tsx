@@ -111,9 +111,6 @@ const HomePage = () => (
       </div>
     </section>
 
-    {/* CTA Banner */}
-    <CTABanner />
-
     {/* Gallery Preview */}
     <section className="py-20 bg-section-alt">
       <div className="container mx-auto px-4 lg:px-8 text-center">
@@ -128,6 +125,9 @@ const HomePage = () => (
         </Link>
       </div>
     </section>
+
+    {/* CTA Banner */}
+    <CTABanner />
   </div>
 );
 
