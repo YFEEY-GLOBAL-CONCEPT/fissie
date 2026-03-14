@@ -10,7 +10,7 @@ const ContactPage = () => {
       alert("Please fill in required fields.");
       return;
     }
-    alert("Message sent! We'll get back to you shortly.");
+    alert("Message sent! We'll get back to you shortly. (Backend integration required via Lovable Cloud)");
     setForm({ firstName: "", lastName: "", email: "", subject: "", message: "" });
   };
 
@@ -29,23 +29,23 @@ const ContactPage = () => {
                 Have any question in mind or want to enquire? Please feel free to contact us through the form or the following details.
               </p>
             </div>
-            <div>
-              <h3 className="text-xl font-bold text-foreground mb-3">Let's talk!</h3>
-              <div className="flex items-center gap-6 mb-6">
-                <a href="tel:+2348023165665" className="text-muted-foreground hover:text-foreground text-sm">+234 802 316 5665</a>
-                <a href="mailto:info@fissieehelping.org" className="text-muted-foreground hover:text-foreground text-sm">info@fissieehelping.org</a>
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-lg font-bold text-foreground mb-1">Let's talk!</h3>
+                <p className="text-sm text-muted-foreground">+234 09012346514 &nbsp;&nbsp; hello@fissieej.com</p>
               </div>
-
-              <h4 className="font-bold text-foreground mb-1">Head Office</h4>
-              <p className="text-sm text-muted-foreground mb-4">Abuja, Nigeria</p>
-
-              <h4 className="font-bold text-foreground mb-1">Branch Office</h4>
-              <p className="text-sm text-muted-foreground mb-6">Northern Nigeria</p>
-
-              <div className="flex items-center gap-4">
-                <a href="#" className="text-muted-foreground hover:text-foreground"><Facebook size={18} /></a>
-                <a href="#" className="text-muted-foreground hover:text-foreground"><Twitter size={18} /></a>
-                <a href="#" className="text-muted-foreground hover:text-foreground"><Linkedin size={18} /></a>
+              <div>
+                <h4 className="font-bold text-foreground mb-1">Head Office</h4>
+                <p className="text-sm text-muted-foreground">8 Brewery Drive, Lagos, Nigeria.</p>
+              </div>
+              <div>
+                <h4 className="font-bold text-foreground mb-1">Branch Office</h4>
+                <p className="text-sm text-muted-foreground">Opp Opolo round about, Yenagoa, Bayelsa, Nigeria</p>
+              </div>
+              <div className="flex gap-4">
+                <a href="#" className="text-foreground hover:text-gold transition-colors"><Facebook size={20} /></a>
+                <a href="#" className="text-foreground hover:text-gold transition-colors"><Twitter size={20} /></a>
+                <a href="#" className="text-foreground hover:text-gold transition-colors"><Linkedin size={20} /></a>
               </div>
             </div>
           </div>
@@ -116,6 +116,11 @@ const ContactPage = () => {
             </div>
           </form>
         </div>
+      </section>
+
+      {/* Map placeholder */}
+      <section className="h-80 bg-muted flex items-center justify-center">
+        <p className="text-muted-foreground">Map integration available with Lovable Cloud</p>
       </section>
     </div>
   );
