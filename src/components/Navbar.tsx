@@ -18,7 +18,7 @@ const Navbar = () => {
     <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
       <div className="container mx-auto flex items-center justify-between py-3 px-4 lg:px-8">
         <Link to="/" className="flex items-center gap-2">
-          <img src={logo} alt="FissieE-J Logo" className="h-10 w-auto" />
+          <img src={logo} alt="FissieE-J Logo" className="h-14 w-auto" />
           <span className="text-lg font-bold text-foreground">
             FissieE-J Helping Hands <span className="text-gold">Foundation</span>
           </span>
