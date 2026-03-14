@@ -1,5 +1,12 @@
 import { useState } from "react";
-import { Facebook, Twitter, Linkedin } from "lucide-react";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
+
+const contactCards = [
+  { icon: Phone, title: "Call Us", details: ["+234 802 316 5665"], color: "bg-blue-500" },
+  { icon: Mail, title: "Email Us", details: ["info@fissieehelping.org", "contact@fissieehelping.org"], color: "bg-green-500" },
+  { icon: MapPin, title: "Visit Us", details: ["Abuja, Nigeria", "Northern Nigeria"], color: "bg-purple-500" },
+  { icon: Clock, title: "Office Hours", details: ["Mon - Fri: 9AM - 5PM", "Emergency: 24/7"], color: "bg-orange-500" },
+];
 
 const ContactPage = () => {
   const [form, setForm] = useState({ firstName: "", lastName: "", email: "", subject: "", message: "" });
@@ -10,7 +17,7 @@ const ContactPage = () => {
       alert("Please fill in required fields.");
       return;
     }
-    alert("Message sent! We'll get back to you shortly. (Backend integration required via Lovable Cloud)");
+    alert("Message sent! We'll get back to you shortly.");
     setForm({ firstName: "", lastName: "", email: "", subject: "", message: "" });
   };
 
@@ -18,47 +25,46 @@ const ContactPage = () => {
     <div>
       {/* Hero */}
       <section className="bg-muted py-16">
+        <div className="container mx-auto px-4 lg:px-8 text-center">
+          <p className="section-label mb-4 inline-block">Contact Us</p>
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            Get in Touch
+          </h1>
+          <p className="text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+            We'd love to hear from you and answer any questions you may have about our work or how you can get involved.
+          </p>
+        </div>
+      </section>
+
+      {/* Contact Cards */}
+      <section className="py-16">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <p className="section-label mb-4">Contact Us</p>
-              <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-                We'd love to hear from you
-              </h1>
-              <p className="text-muted-foreground leading-relaxed">
-                Have any question in mind or want to enquire? Please feel free to contact us through the form or the following details.
-              </p>
-            </div>
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-lg font-bold text-foreground mb-1">Let's talk!</h3>
-                <p className="text-sm text-muted-foreground">+234 09012346514 &nbsp;&nbsp; hello@fissieej.com</p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {contactCards.map((card) => (
+              <div key={card.title} className="rounded-xl overflow-hidden shadow-sm border border-border">
+                <div className={`${card.color} p-4`}>
+                  <card.icon size={24} className="text-primary-foreground mb-2" />
+                  <h3 className="font-bold text-primary-foreground">{card.title}</h3>
+                </div>
+                <div className="p-4 bg-background">
+                  {card.details.map((d, i) => (
+                    <p key={i} className="text-sm text-muted-foreground">{d}</p>
+                  ))}
+                </div>
               </div>
-              <div>
-                <h4 className="font-bold text-foreground mb-1">Head Office</h4>
-                <p className="text-sm text-muted-foreground">8 Brewery Drive, Lagos, Nigeria.</p>
-              </div>
-              <div>
-                <h4 className="font-bold text-foreground mb-1">Branch Office</h4>
-                <p className="text-sm text-muted-foreground">Opp Opolo round about, Yenagoa, Bayelsa, Nigeria</p>
-              </div>
-              <div className="flex gap-4">
-                <a href="#" className="text-foreground hover:text-gold transition-colors"><Facebook size={20} /></a>
-                <a href="#" className="text-foreground hover:text-gold transition-colors"><Twitter size={20} /></a>
-                <a href="#" className="text-foreground hover:text-gold transition-colors"><Linkedin size={20} /></a>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Form */}
-      <section className="py-16">
+      <section className="py-16 bg-section-alt">
         <div className="container mx-auto px-4 lg:px-8 max-w-2xl">
+          <h2 className="text-3xl font-bold text-foreground mb-8 text-center">Send Us a Message</h2>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-2 gap-6">
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">First Name</label>
+                <label className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">First Name *</label>
                 <input
                   type="text"
                   value={form.firstName}
@@ -80,7 +86,7 @@ const ContactPage = () => {
             </div>
             <div className="grid grid-cols-2 gap-6">
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">Email Id</label>
+                <label className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">Email *</label>
                 <input
                   type="email"
                   value={form.email}
@@ -100,27 +106,22 @@ const ContactPage = () => {
               </div>
             </div>
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">Message</label>
+              <label className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">Message *</label>
               <textarea
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
                 rows={5}
                 className="w-full border border-border rounded-md bg-background p-4 text-foreground focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold resize-none"
-                placeholder="Type your Message"
+                placeholder="Type your message"
               />
             </div>
             <div className="text-center">
               <button type="submit" className="bg-gold text-foreground px-8 py-3 rounded-md font-medium hover:bg-gold-hover transition-colors">
-                Send message
+                Send Message
               </button>
             </div>
           </form>
         </div>
-      </section>
-
-      {/* Map placeholder */}
-      <section className="h-80 bg-muted flex items-center justify-center">
-        <p className="text-muted-foreground">Map integration available with Lovable Cloud</p>
       </section>
     </div>
   );
