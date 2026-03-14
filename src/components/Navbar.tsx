@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import logo from "@/assets/logo.png";
 
 const navLinks = [
-  { label: "Who We Are", to: "/about" },
+  { label: "Home", to: "/" },
+  { label: "About Us", to: "/about" },
   { label: "What We Do", to: "/what-we-do" },
   { label: "Gallery", to: "/gallery" },
-  { label: "Contact Us", to: "/contact" },
+  { label: "Contact", to: "/contact" },
 ];
 
 const Navbar = () => {
@@ -16,15 +16,12 @@ const Navbar = () => {
 
   return (
     <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
-      <div className="container mx-auto flex items-center justify-between py-3 px-4 lg:px-8">
-        <Link to="/" className="flex items-center gap-2">
-          <img src={logo} alt="FissieE-J Logo" className="h-14 w-auto" />
-          <span className="text-lg font-bold text-foreground">
-            FissieE-J Helping Hands <span className="text-gold">Foundation</span>
-          </span>
+      <div className="container mx-auto flex items-center justify-between py-4 px-4 lg:px-8">
+        <Link to="/" className="text-xl font-bold tracking-tight text-foreground">
+          FissieE-J<span className="italic text-gold">i</span>
         </Link>
 
-        {/* Desktop - centered */}
+        {/* Desktop */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <Link

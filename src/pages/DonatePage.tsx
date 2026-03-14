@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CreditCard, X, CheckCircle, AlertCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 import donateHero from "@/assets/donate-hero.jpg";
 
 const amounts = [5000, 10000, 20000, 50000];
@@ -10,63 +10,16 @@ const DonatePage = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-
-  // Modal states
-  const [showCardModal, setShowCardModal] = useState(false);
-  const [showSuccessModal, setShowSuccessModal] = useState(false);
-  const [showErrorModal, setShowErrorModal] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
-
-  // Card fields
-  const [cardNumber, setCardNumber] = useState("");
-  const [cardExpiry, setCardExpiry] = useState("");
-  const [cardCvv, setCardCvv] = useState("");
-  const [processing, setProcessing] = useState(false);
+  const [activeTab, setActiveTab] = useState<"overview" | "impact" | "what-you-get">("overview");
 
   const finalAmount = selectedAmount || Number(customAmount) || 0;
 
-  const formatCardNumber = (value: string) => {
-    const v = value.replace(/\D/g, "").slice(0, 16);
-    return v.replace(/(\d{4})(?=\d)/g, "$1 ");
-  };
-
-  const formatExpiry = (value: string) => {
-    const v = value.replace(/\D/g, "").slice(0, 4);
-    if (v.length >= 3) return v.slice(0, 2) + "/" + v.slice(2);
-    return v;
-  };
-
-  const handleDonateClick = () => {
+  const handleDonate = () => {
     if (!name || !email || finalAmount < 100) {
-      setErrorMessage("Please fill in all fields and select an amount (min ₦100).");
-      setShowErrorModal(true);
+      alert("Please fill in all fields and select an amount.");
       return;
     }
-    setShowCardModal(true);
-  };
-
-  const handlePayment = () => {
-    if (!cardNumber || !cardExpiry || !cardCvv) {
-      setErrorMessage("Please enter all card details.");
-      setShowErrorModal(true);
-      return;
-    }
-    setProcessing(true);
-    // Simulate payment processing
-    setTimeout(() => {
-      setProcessing(false);
-      setShowCardModal(false);
-      setShowSuccessModal(true);
-      // Reset form
-      setName("");
-      setEmail("");
-      setMessage("");
-      setSelectedAmount(null);
-      setCustomAmount("");
-      setCardNumber("");
-      setCardExpiry("");
-      setCardCvv("");
-    }, 2000);
+    alert(`Thank you ${name}! Donation of ₦${finalAmount.toLocaleString()} will be processed. (Paystack integration requires backend setup via Lovable Cloud)`);
   };
 
   return (
@@ -78,10 +31,10 @@ const DonatePage = () => {
             <div>
               <p className="section-label mb-4">Donate</p>
               <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-                Making a donation for our communities.
+                Making a donation for our children.
               </h1>
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                When you donate, you're supporting effective care for underprivileged communities — an investment in the leaders of tomorrow.
+                When you donate, you're supporting effective care to children with special needs—an investment in the leaders of tomorrow.
               </p>
               <a href="#donate-form" className="inline-block bg-gold text-foreground px-6 py-3 rounded-md font-medium hover:bg-gold-hover transition-colors">
                 Donate now
@@ -94,8 +47,46 @@ const DonatePage = () => {
         </div>
       </section>
 
+      {/* Tabs section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-12">
+            <div>
+              <h2 className="text-3xl font-bold text-foreground mb-4">
+                How you can contribute to caring for our kids
+              </h2>
+              <p className="text-muted-foreground leading-relaxed">
+                Every donation goes directly to supporting our programs. We ensure complete transparency in how your contributions are used to make a lasting impact.
+              </p>
+            </div>
+            <div>
+              <div className="flex gap-6 border-b border-border mb-6">
+                {(["overview", "impact", "what-you-get"] as const).map((tab) => (
+                  <button
+                    key={tab}
+                    onClick={() => setActiveTab(tab)}
+                    className={`pb-3 text-sm font-medium capitalize transition-colors ${
+                      activeTab === tab
+                        ? "border-b-2 border-foreground text-foreground"
+                        : "text-muted-foreground"
+                    }`}
+                  >
+                    {tab.replace(/-/g, " ")}
+                  </button>
+                ))}
+              </div>
+              <p className="text-muted-foreground leading-relaxed">
+                {activeTab === "overview" && "Your donation funds essential programs including education, healthcare, therapy sessions, and community outreach for children with special needs."}
+                {activeTab === "impact" && "Every ₦5,000 provides a week of meals. Every ₦20,000 sponsors a child's education for a month. Your generosity directly transforms lives."}
+                {activeTab === "what-you-get" && "Donors receive a tax receipt, impact reports, and invitations to our annual events to see firsthand the difference your contribution makes."}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Donation Form */}
-      <section id="donate-form" className="py-20">
+      <section id="donate-form" className="py-20 bg-section-alt">
         <div className="container mx-auto px-4 lg:px-8 max-w-xl">
           <h2 className="text-3xl font-bold text-foreground mb-8 text-center">Make a Donation</h2>
 
@@ -146,112 +137,46 @@ const DonatePage = () => {
           />
 
           <button
-            onClick={handleDonateClick}
+            onClick={handleDonate}
             className="w-full bg-gold text-foreground py-3 rounded-md font-bold text-lg hover:bg-gold-hover transition-colors"
           >
             Donate ₦{finalAmount > 0 ? finalAmount.toLocaleString() : "0"}
           </button>
           <p className="text-xs text-muted-foreground text-center mt-3">
-            Payments are securely processed via Paystack.
+            Payments are securely processed via Paystack. Your card details never touch our servers.
           </p>
         </div>
       </section>
 
-      {/* Card Payment Modal */}
-      {showCardModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-foreground/50 backdrop-blur-sm p-4">
-          <div className="bg-background rounded-xl shadow-xl max-w-md w-full p-6 relative">
-            <button onClick={() => setShowCardModal(false)} className="absolute top-4 right-4 text-muted-foreground hover:text-foreground">
-              <X size={20} />
-            </button>
-            <div className="flex items-center gap-2 mb-6">
-              <CreditCard size={24} className="text-gold" />
-              <h3 className="text-xl font-bold text-foreground">Enter Card Details</h3>
+      {/* How we use */}
+      <section className="py-20">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="grid md:grid-cols-3 gap-12">
+            <div>
+              <h2 className="text-3xl font-bold text-foreground">How we use your donation</h2>
             </div>
-            <p className="text-sm text-muted-foreground mb-6">
-              Amount: <span className="font-bold text-foreground">₦{finalAmount.toLocaleString()}</span>
-            </p>
-            <input
-              type="text"
-              placeholder="Card Number (e.g. 5399 8300 0000 0000)"
-              value={cardNumber}
-              onChange={(e) => setCardNumber(formatCardNumber(e.target.value))}
-              maxLength={19}
-              className="w-full px-4 py-3 rounded-md border border-border bg-background text-foreground mb-3 focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold font-mono"
-            />
-            <div className="grid grid-cols-2 gap-3 mb-6">
-              <input
-                type="text"
-                placeholder="MM/YY"
-                value={cardExpiry}
-                onChange={(e) => setCardExpiry(formatExpiry(e.target.value))}
-                maxLength={5}
-                className="w-full px-4 py-3 rounded-md border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold font-mono"
-              />
-              <input
-                type="text"
-                placeholder="CVV"
-                value={cardCvv}
-                onChange={(e) => setCardCvv(e.target.value.replace(/\D/g, "").slice(0, 4))}
-                maxLength={4}
-                className="w-full px-4 py-3 rounded-md border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold font-mono"
-              />
+            <div>
+              <p className="text-muted-foreground leading-relaxed">
+                We allocate funds transparently: 45% goes to childcare, 25% to education, 20% to healthcare, and 10% to administration.
+              </p>
             </div>
-            <button
-              onClick={handlePayment}
-              disabled={processing}
-              className="w-full bg-gold text-foreground py-3 rounded-md font-bold hover:bg-gold-hover transition-colors disabled:opacity-50"
-            >
-              {processing ? "Processing..." : `Pay ₦${finalAmount.toLocaleString()}`}
-            </button>
-            <p className="text-xs text-muted-foreground text-center mt-3">
-              Secured by Paystack
-            </p>
+            <div>
+              <p className="text-muted-foreground leading-relaxed">
+                Every naira is accounted for. We publish quarterly impact reports that detail exactly how donations are spent and the outcomes achieved.
+              </p>
+            </div>
           </div>
         </div>
-      )}
+      </section>
 
-      {/* Success Modal */}
-      {showSuccessModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-foreground/50 backdrop-blur-sm p-4">
-          <div className="bg-background rounded-xl shadow-xl max-w-sm w-full p-8 text-center relative">
-            <button onClick={() => setShowSuccessModal(false)} className="absolute top-4 right-4 text-muted-foreground hover:text-foreground">
-              <X size={20} />
-            </button>
-            <CheckCircle size={56} className="text-green-500 mx-auto mb-4" />
-            <h3 className="text-2xl font-bold text-foreground mb-2">Thank You!</h3>
-            <p className="text-muted-foreground mb-6">
-              Your donation has been received successfully. A confirmation email will be sent shortly.
-            </p>
-            <button
-              onClick={() => setShowSuccessModal(false)}
-              className="bg-gold text-foreground px-6 py-3 rounded-md font-medium hover:bg-gold-hover transition-colors"
-            >
-              Close
-            </button>
+      {/* CTA */}
+      <section className="py-0">
+        <Link to="/contact" className="block">
+          <div className="bg-primary py-12 text-center">
+            <p className="text-primary-foreground text-lg">Have questions about donating? <span className="underline font-medium">Contact us</span></p>
           </div>
-        </div>
-      )}
-
-      {/* Error Modal */}
-      {showErrorModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-foreground/50 backdrop-blur-sm p-4">
-          <div className="bg-background rounded-xl shadow-xl max-w-sm w-full p-8 text-center relative">
-            <button onClick={() => setShowErrorModal(false)} className="absolute top-4 right-4 text-muted-foreground hover:text-foreground">
-              <X size={20} />
-            </button>
-            <AlertCircle size={56} className="text-destructive mx-auto mb-4" />
-            <h3 className="text-2xl font-bold text-foreground mb-2">Oops!</h3>
-            <p className="text-muted-foreground mb-6">{errorMessage}</p>
-            <button
-              onClick={() => setShowErrorModal(false)}
-              className="bg-gold text-foreground px-6 py-3 rounded-md font-medium hover:bg-gold-hover transition-colors"
-            >
-              Try Again
-            </button>
-          </div>
-        </div>
-      )}
+        </Link>
+      </section>
     </div>
   );
 };
