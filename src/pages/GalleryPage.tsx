@@ -6,20 +6,22 @@ import gallery3 from "@/assets/gallery-3.jpg";
 import gallery4 from "@/assets/gallery-4.jpg";
 import gallery5 from "@/assets/gallery-5.jpg";
 import gallery6 from "@/assets/gallery-6.jpg";
-import heroImg from "@/assets/hero-children.jpg";
-import aboutGroup from "@/assets/about-group.jpg";
-import outreachImg from "@/assets/project-outreach.jpg";
+import gallery7 from "@/assets/gallery-7.jpg";
+import gallery8 from "@/assets/gallery-8.jpg";
+import gallery9 from "@/assets/gallery-9.jpg";
+import gallery10 from "@/assets/gallery-10.jpg";
 
 const images = [
-  { src: gallery1, caption: "Arts & Crafts Workshop" },
-  { src: gallery2, caption: "Community Health Outreach" },
-  { src: gallery3, caption: "Education Support Program" },
-  { src: gallery4, caption: "Community Celebration" },
-  { src: gallery5, caption: "Building Together" },
-  { src: gallery6, caption: "Food Sharing Program" },
-  { src: heroImg, caption: "Our Happy Children" },
-  { src: aboutGroup, caption: "Group Activities" },
-  { src: outreachImg, caption: "Outreach Distribution" },
+  { src: gallery1, caption: "Community outreach event" },
+  { src: gallery2, caption: "Volunteers helping out" },
+  { src: gallery3, caption: "Distribution of supplies" },
+  { src: gallery4, caption: "Happy children" },
+  { src: gallery5, caption: "Educational session" },
+  { src: gallery6, caption: "Foundation activities" },
+  { src: gallery7, caption: "Community support" },
+  { src: gallery8, caption: "Empowerment program" },
+  { src: gallery9, caption: "Health awareness" },
+  { src: gallery10, caption: "Field work" },
 ];
 
 const GalleryPage = () => {
@@ -31,7 +33,7 @@ const GalleryPage = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <p className="section-label mb-4">Our Gallery</p>
           <h1 className="text-4xl md:text-5xl font-bold text-foreground">
-            Moments of Impact
+            A glimpse into our journey of restoring dignity and hope
           </h1>
         </div>
       </section>
@@ -53,6 +55,11 @@ const GalleryPage = () => {
                 </div>
               </div>
             ))}
+          </div>
+          <div className="text-center mt-12">
+            <a href="https://www.instagram.com/fissieej_helpinghands" target="_blank" rel="noopener noreferrer" className="inline-block bg-gold text-foreground px-6 py-3 rounded-md font-medium hover:bg-gold-hover transition-colors">
+              Follow us on Instagram for more
+            </a>
           </div>
         </div>
       </section>
