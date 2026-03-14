@@ -1,21 +1,12 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Heart, Users, BookOpen, Droplets, Shirt, UtensilsCrossed } from "lucide-react";
 import heroImg from "@/assets/hero-bg.jpg";
 import aboutImg from "@/assets/about-group.jpg";
-import ctaBannerImg from "@/assets/cta-banner.jpg";
 import gallery1 from "@/assets/gallery-1.jpg";
 import gallery2 from "@/assets/gallery-2.jpg";
 import gallery3 from "@/assets/gallery-3.jpg";
 import ImpactCounter from "@/components/ImpactCounter";
 import CTABanner from "@/components/CTABanner";
-
-const supportWays = [
-  { icon: Heart, title: "Financial Support", desc: "Direct monetary contributions to fund our programs and outreach." },
-  { icon: UtensilsCrossed, title: "Food Donations", desc: "Nutritious meals and supplies for communities in need." },
-  { icon: Droplets, title: "Hygiene Supplies", desc: "Soap, sanitizers, and health products for hygiene campaigns." },
-  { icon: Shirt, title: "Clothing & Items", desc: "Essential clothing and materials for the less privileged." },
-];
 
 const HomePage = () => (
   <div>
@@ -29,23 +20,27 @@ const HomePage = () => (
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="max-w-2xl mx-auto text-center"
+          className="max-w-3xl"
         >
-          <h1 className="text-4xl md:text-6xl font-bold text-hero-foreground leading-tight mb-6">
-            Helping <span className="text-gold">People,</span> Changing <span className="text-gold">Lives</span>
+          <h1 className="text-5xl md:text-[64px] font-bold text-hero-foreground leading-tight mb-6">
+            Inclusive care for children with special needs
           </h1>
-          <div className="bg-background/90 rounded-xl p-6 mb-8 max-w-xl mx-auto">
-            <p className="text-muted-foreground leading-relaxed">
-              We empower communities across Nigeria through <strong className="text-foreground">hygiene education</strong>, <strong className="text-foreground">women's support programs</strong>, and sustainable development initiatives that create lasting positive change.
-            </p>
+          <div className="flex items-center gap-4 flex-wrap mb-12">
+            <Link to="/what-we-do" className="bg-gold text-foreground px-6 py-3 rounded-md font-medium hover:bg-gold-hover transition-colors">
+              What we do
+            </Link>
+            <button className="flex items-center gap-2 text-hero-foreground font-medium">
+              <span className="bg-hero-foreground/20 p-3 rounded-full">▶</span>
+              Play Video
+            </button>
           </div>
-          <div className="flex items-center justify-center gap-4 flex-wrap">
-            <Link to="/donate" className="bg-gold text-foreground px-6 py-3 rounded-md font-medium hover:bg-gold-hover transition-colors">
-              Help Now
-            </Link>
-            <Link to="/what-we-do" className="bg-hero-foreground/10 text-hero-foreground border border-hero-foreground/30 px-6 py-3 rounded-md font-medium hover:bg-hero-foreground/20 transition-colors">
-              Our Impact
-            </Link>
+          <div className="flex items-center gap-12 text-hero-foreground">
+            <div>
+              <span className="text-sm opacity-80">250 children under our care</span>
+            </div>
+            <div>
+              <span className="text-sm opacity-80">98 donations collected</span>
+            </div>
           </div>
         </motion.div>
       </div>
@@ -54,11 +49,11 @@ const HomePage = () => (
     {/* About Preview */}
     <section className="py-20">
       <div className="container mx-auto px-4 lg:px-8">
+        <p className="section-label mb-4">Know About Us</p>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="section-label mb-4">About Us</p>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Restoring Dignity, Inspiring Hope.
+              We provide a place for children with special needs
             </h2>
             <p className="text-muted-foreground mb-4 leading-relaxed">
               FissieE-J Helping Hands Foundation is a grassroots NGO committed to restoring dignity and hope for single mothers, widows, and orphans. Our work focuses on education, basic needs, hygiene, and welfare, driven by a long-standing passion to support the less privileged.
@@ -112,26 +107,6 @@ const HomePage = () => (
           <ImpactCounter end={1000} label="Lives Impacted" suffix="+" />
           <ImpactCounter end={2} label="Years Active" suffix="+" />
           <ImpactCounter end={10} label="Communities" suffix="+" />
-        </div>
-      </div>
-    </section>
-
-    {/* Ways to Support */}
-    <section className="py-20">
-      <div className="container mx-auto px-4 lg:px-8">
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 text-center">
-          Ways to Support Us
-        </h2>
-        <div className="grid md:grid-cols-4 gap-8">
-          {supportWays.map((s) => (
-            <div key={s.title} className="text-center">
-              <div className="bg-gold/20 p-4 rounded-full inline-flex mb-4">
-                <s.icon size={28} className="text-foreground" />
-              </div>
-              <h4 className="font-bold text-foreground mb-2">{s.title}</h4>
-              <p className="text-sm text-muted-foreground">{s.desc}</p>
-            </div>
-          ))}
         </div>
       </div>
     </section>
