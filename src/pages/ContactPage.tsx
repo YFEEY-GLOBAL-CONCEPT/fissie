@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Facebook, Twitter, Linkedin } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 
 const ContactPage = () => {
   const [form, setForm] = useState({ firstName: "", lastName: "", email: "", subject: "", message: "" });
@@ -26,26 +26,37 @@ const ContactPage = () => {
                 We'd love to hear from you
               </h1>
               <p className="text-muted-foreground leading-relaxed">
-                Have any question in mind or want to enquire? Please feel free to contact us through the form or the following details.
+                Want to learn more about our work or get involved? We'd love to hear from you.
               </p>
             </div>
             <div className="space-y-6">
-              <div>
-                <h3 className="text-lg font-bold text-foreground mb-1">Let's talk!</h3>
-                <p className="text-sm text-muted-foreground">+234 09012346514 &nbsp;&nbsp; hello@fissieej.com</p>
+              <div className="flex items-start gap-3">
+                <Phone size={20} className="text-gold mt-1 shrink-0" />
+                <div>
+                  <h3 className="text-lg font-bold text-foreground mb-1">Call Us</h3>
+                  <p className="text-sm text-muted-foreground">
+                    <a href="tel:+2347036869240">+234 703 686 9240</a> &nbsp;|&nbsp; <a href="tel:+2348023165665">+234 802 316 5665</a>
+                  </p>
+                </div>
               </div>
-              <div>
-                <h4 className="font-bold text-foreground mb-1">Head Office</h4>
-                <p className="text-sm text-muted-foreground">8 Brewery Drive, Lagos, Nigeria.</p>
+              <div className="flex items-start gap-3">
+                <Mail size={20} className="text-gold mt-1 shrink-0" />
+                <div>
+                  <h4 className="font-bold text-foreground mb-1">Email Us</h4>
+                  <p className="text-sm text-muted-foreground">info@fissieehelping.org</p>
+                </div>
               </div>
-              <div>
-                <h4 className="font-bold text-foreground mb-1">Branch Office</h4>
-                <p className="text-sm text-muted-foreground">Opp Opolo round about, Yenagoa, Bayelsa, Nigeria</p>
+              <div className="flex items-start gap-3">
+                <MapPin size={20} className="text-gold mt-1 shrink-0" />
+                <div>
+                  <h4 className="font-bold text-foreground mb-1">Visit Us</h4>
+                  <p className="text-sm text-muted-foreground">Lagos, Nigeria</p>
+                </div>
               </div>
-              <div className="flex gap-4">
-                <a href="#" className="text-foreground hover:text-gold transition-colors"><Facebook size={20} /></a>
-                <a href="#" className="text-foreground hover:text-gold transition-colors"><Twitter size={20} /></a>
-                <a href="#" className="text-foreground hover:text-gold transition-colors"><Linkedin size={20} /></a>
+              <div className="flex items-start gap-3">
+                <a href="https://www.instagram.com/fissieej_helpinghands" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-gold transition-colors text-sm font-medium">
+                  Follow us on Instagram
+                </a>
               </div>
             </div>
           </div>
@@ -80,7 +91,7 @@ const ContactPage = () => {
             </div>
             <div className="grid grid-cols-2 gap-6">
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">Email Id</label>
+                <label className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">Email</label>
                 <input
                   type="email"
                   value={form.email}
@@ -116,11 +127,6 @@ const ContactPage = () => {
             </div>
           </form>
         </div>
-      </section>
-
-      {/* Map placeholder */}
-      <section className="h-80 bg-muted flex items-center justify-center">
-        <p className="text-muted-foreground">Map integration available with Lovable Cloud</p>
       </section>
     </div>
   );
