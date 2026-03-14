@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import logo from "@/assets/logo.png";
 
 const navLinks = [
-  { label: "Who We Are", to: "/about" },
+  { label: "Home", to: "/" },
+  { label: "About Us", to: "/about" },
   { label: "What We Do", to: "/what-we-do" },
   { label: "Gallery", to: "/gallery" },
-  { label: "Contact Us", to: "/contact" },
+  { label: "Contact", to: "/contact" },
 ];
 
 const Navbar = () => {
@@ -16,16 +16,13 @@ const Navbar = () => {
 
   return (
     <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
-      <div className="container mx-auto flex items-center justify-between py-3 px-4 lg:px-8">
-        <Link to="/" className="flex items-center gap-2">
-          <img src={logo} alt="FissieE-J Helping Hands Foundation" className="h-10 w-auto" />
-          <span className="text-lg font-bold tracking-tight text-foreground">
-            FissieE-J Helping Hands <span className="text-gold">Foundation</span>
-          </span>
+      <div className="container mx-auto flex items-center justify-between py-4 px-4 lg:px-8">
+        <Link to="/" className="text-xl font-bold tracking-tight text-foreground">
+          FissieE-J<span className="italic text-gold">i</span>
         </Link>
 
-        {/* Desktop - centered */}
-        <div className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
+        {/* Desktop */}
+        <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <Link
               key={link.to}
@@ -37,12 +34,9 @@ const Navbar = () => {
               {link.label}
             </Link>
           ))}
-        </div>
-
-        <div className="hidden md:block">
           <Link
             to="/donate"
-            className="bg-gold text-foreground px-5 py-2 rounded-md text-sm font-medium hover:bg-gold-hover transition-colors"
+            className="bg-primary text-primary-foreground px-5 py-2 rounded-md text-sm font-medium hover:opacity-90 transition-opacity"
           >
             Donate
           </Link>
@@ -69,7 +63,7 @@ const Navbar = () => {
           ))}
           <Link
             to="/donate"
-            className="mt-3 block text-center bg-gold text-foreground px-5 py-2 rounded-md text-sm font-medium"
+            className="mt-3 block text-center bg-primary text-primary-foreground px-5 py-2 rounded-md text-sm font-medium"
             onClick={() => setOpen(false)}
           >
             Donate
