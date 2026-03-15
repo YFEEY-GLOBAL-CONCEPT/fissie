@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import ctaBg from "@/assets/image copy 6.png";
+import ctaBg from "@/assets/cta-bg-img.png";
 
 const CTABanner = () => (
   <section

@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { X } from "lucide-react";
-import gallery1 from "@/assets/image.png";
-import gallery2 from "@/assets/image copy.png";
-import gallery3 from "@/assets/image copy 2.png";
-import gallery4 from "@/assets/image copy 3.png";
-import gallery5 from "@/assets/image copy 4.png";
-import gallery6 from "@/assets/image copy 5.png";
-import gallery7 from "@/assets/image copy 6.png";
-import gallery8 from "@/assets/image copy 7.png";
-import gallery9 from "@/assets/image copy 8.png";
+import gallery1 from "@/assets/gallery-main.png";
+import gallery2 from "@/assets/excursion-img.png";
+import gallery3 from "@/assets/awareness-img.png";
+import gallery4 from "@/assets/group-img.png";
+import gallery5 from "@/assets/outreach-img.png";
+import gallery6 from "@/assets/team-img.png";
+import gallery7 from "@/assets/cta-bg-img.png";
+import gallery8 from "@/assets/gallery-7.png";
+import gallery9 from "@/assets/gallery-8.png";
 import CTABanner from "@/components/CTABanner";
 
 const images = [

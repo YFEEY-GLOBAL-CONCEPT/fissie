@@ -9,19 +9,19 @@ import {
   Megaphone,
 } from "lucide-react";
 import heroImg from "@/assets/hero-bg.jpg";
-import servicesImg from "@/assets/image copy 4.png";
-import outreachImg from "@/assets/image copy 4.png";
-import excursionImg from "@/assets/image copy.png";
-import awarenessImg from "@/assets/image copy 2.png";
+import servicesImg from "@/assets/outreach-img.png";
+import outreachImg from "@/assets/outreach-img.png";
+import excursionImg from "@/assets/excursion-img.png";
+import awarenessImg from "@/assets/awareness-img.png";
 import ImpactCounter from "@/components/ImpactCounter";
 import ProjectCard from "@/components/ProjectCard";
 import CTABanner from "@/components/CTABanner";
 import EventCard from "@/components/EventCard";
-import gallery1 from "@/assets/image.png";
-import gallery2 from "@/assets/image copy.png";
+import gallery1 from "@/assets/gallery-main.png";
+import gallery2 from "@/assets/excursion-img.png";
 import gallery3 from "@/assets/about-img.jpg";
-import gallery4 from "@/assets/image copy 3.png";
-import gallery5 from "@/assets/image copy 5.png";
+import gallery4 from "@/assets/group-img.png";
+import gallery5 from "@/assets/team-img.png";
 
 const services = [
   {

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import foundationLogo from "@/assets/foundation-logo.png";
 
 const Footer = () => (
   <footer className="bg-black text-white">
@@ -7,7 +8,7 @@ const Footer = () => (
         <div className="lg:col-span-2">
           <div className="flex items-center gap-3 mb-6">
             <img
-              src="/src/assets/foundation-logo.png"
+              src={foundationLogo}
               alt="Logo"
               className="h-8 md:h-10 w-auto"
             />

@@ -13,7 +13,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import donateHero from "@/assets/image copy 5.png";
+import donateHero from "@/assets/team-img.png";
 import CTABanner from "@/components/CTABanner";
 
 const amounts = [5000, 10000, 20000, 50000];

@@ -6,10 +6,10 @@ import {
   Stethoscope,
   Megaphone,
 } from "lucide-react";
-import aboutGroup from "@/assets/image copy 3.png";
-import outreachImg from "@/assets/image copy 4.png";
-import excursionImg from "@/assets/image copy.png";
-import awarenessImg from "@/assets/image copy 2.png";
+import aboutGroup from "@/assets/group-img.png";
+import outreachImg from "@/assets/outreach-img.png";
+import excursionImg from "@/assets/excursion-img.png";
+import awarenessImg from "@/assets/awareness-img.png";
 import ProjectCard from "@/components/ProjectCard";
 import CTABanner from "@/components/CTABanner";
 import EventCard from "@/components/EventCard";

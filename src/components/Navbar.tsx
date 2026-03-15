@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import foundationLogo from "@/assets/foundation-logo.png";
 
 const navLinks = [
   { label: "About Us", to: "/about" },
@@ -21,7 +22,7 @@ const Navbar = () => {
           className="text-xl font-bold tracking-tight text-[#172554] flex items-center gap-2"
         >
           <img
-            src="/src/assets/foundation-logo.png"
+            src={foundationLogo}
             alt="Logo"
             className="h-8 md:h-10 w-auto"
           />
