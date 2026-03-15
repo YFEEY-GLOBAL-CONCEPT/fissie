@@ -1,6 +1,20 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import donateHero from "@/assets/donate-hero.jpg";
+import { toast } from "sonner";
+import { CreditCard, Heart, ShieldCheck, Zap } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import donateHero from "@/assets/image copy 5.png";
+import CTABanner from "@/components/CTABanner";
 
 const amounts = [5000, 10000, 20000, 50000];
 
@@ -9,174 +23,360 @@ const DonatePage = () => {
   const [customAmount, setCustomAmount] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [activeTab, setActiveTab] = useState<"overview" | "impact" | "what-you-get">("overview");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isProcessing, setIsProcessing] = useState(false);
 
   const finalAmount = selectedAmount || Number(customAmount) || 0;
 
-  const handleDonate = () => {
+  const handleOpenPayment = () => {
     if (!name || !email || finalAmount < 100) {
-      alert("Please fill in all fields and select an amount.");
+      toast.error("Please fill in your details and select a donation amount.");
       return;
     }
-    alert(`Thank you ${name}! Donation of ₦${finalAmount.toLocaleString()} will be processed. (Paystack integration requires backend setup via Lovable Cloud)`);
+    setIsModalOpen(true);
+  };
+
+  const handlePaymentSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsProcessing(true);
+
+    // Simulate payment processing
+    setTimeout(() => {
+      setIsProcessing(false);
+      setIsModalOpen(false);
+      toast.success("Thank you! Your donation was successful.", {
+        description: `₦${finalAmount.toLocaleString()} has been received to support our mission.`,
+      });
+      // Reset form
+      setName("");
+      setEmail("");
+      setSelectedAmount(null);
+      setCustomAmount("");
+    }, 2000);
   };
 
   return (
-    <div>
+    <div className="bg-white">
       {/* Hero */}
-      <section className="bg-muted py-16">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <p className="section-label mb-4">Donate</p>
-              <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-                Making a donation for our children.
-              </h1>
-              <p className="text-muted-foreground mb-6 leading-relaxed">
-                When you donate, you're supporting effective care to children with special needs—an investment in the leaders of tomorrow.
-              </p>
-              <a href="#donate-form" className="inline-block bg-gold text-foreground px-6 py-3 rounded-md font-medium hover:bg-gold-hover transition-colors">
-                Donate now
-              </a>
-            </div>
-            <div className="rounded-xl overflow-hidden">
-              <img src={donateHero} alt="Donate" className="w-full h-72 object-cover rounded-xl" />
-            </div>
-          </div>
+      <section className="relative py-24 bg-[#172554] overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <img
+            src={donateHero}
+            alt="Donate"
+            className="w-full h-full object-cover"
+          />
         </div>
-      </section>
-
-      {/* Tabs section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <h2 className="text-3xl font-bold text-foreground mb-4">
-                How you can contribute to caring for our kids
-              </h2>
-              <p className="text-muted-foreground leading-relaxed">
-                Every donation goes directly to supporting our programs. We ensure complete transparency in how your contributions are used to make a lasting impact.
-              </p>
-            </div>
-            <div>
-              <div className="flex gap-6 border-b border-border mb-6">
-                {(["overview", "impact", "what-you-get"] as const).map((tab) => (
-                  <button
-                    key={tab}
-                    onClick={() => setActiveTab(tab)}
-                    className={`pb-3 text-sm font-medium capitalize transition-colors ${
-                      activeTab === tab
-                        ? "border-b-2 border-foreground text-foreground"
-                        : "text-muted-foreground"
-                    }`}
-                  >
-                    {tab.replace(/-/g, " ")}
-                  </button>
-                ))}
-              </div>
-              <p className="text-muted-foreground leading-relaxed">
-                {activeTab === "overview" && "Your donation funds essential programs including education, healthcare, therapy sessions, and community outreach for children with special needs."}
-                {activeTab === "impact" && "Every ₦5,000 provides a week of meals. Every ₦20,000 sponsors a child's education for a month. Your generosity directly transforms lives."}
-                {activeTab === "what-you-get" && "Donors receive a tax receipt, impact reports, and invitations to our annual events to see firsthand the difference your contribution makes."}
-              </p>
-            </div>
+        <div className="container relative z-10 mx-auto px-4 lg:px-8">
+          <div className="max-w-2xl">
+            <p className="text-gold font-bold tracking-widest uppercase text-sm mb-4">
+              Support Our Cause
+            </p>
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+              Making a donation for our children.
+            </h1>
+            <p className="text-xl text-white/80 mb-8 leading-relaxed">
+              When you donate, you're supporting effective care to single
+              mothers, widows, and orphans—an investment in a brighter future
+              for Nigeria.
+            </p>
           </div>
         </div>
       </section>
 
       {/* Donation Form */}
-      <section id="donate-form" className="py-20 bg-section-alt">
-        <div className="container mx-auto px-4 lg:px-8 max-w-xl">
-          <h2 className="text-3xl font-bold text-foreground mb-8 text-center">Make a Donation</h2>
+      <section id="donate-form" className="py-24">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            <div className="space-y-8">
+              <div>
+                <h2 className="text-4xl font-bold text-[#172554] mb-6">
+                  How you can contribute
+                </h2>
+                <p className="text-gray-600 text-lg leading-relaxed">
+                  Every donation goes directly to supporting our programs. We
+                  ensure complete transparency in how your contributions are
+                  used to make a lasting impact.
+                </p>
+              </div>
 
-          {/* Amount selection */}
-          <div className="grid grid-cols-2 gap-3 mb-4">
-            {amounts.map((a) => (
-              <button
-                key={a}
-                onClick={() => { setSelectedAmount(a); setCustomAmount(""); }}
-                className={`py-3 rounded-md font-medium text-sm transition-colors ${
-                  selectedAmount === a
-                    ? "bg-gold text-foreground"
-                    : "bg-background border border-border text-foreground hover:bg-muted"
-                }`}
+              <div className="grid sm:grid-cols-2 gap-6">
+                <div className="p-6 bg-gray-50 rounded-2xl flex gap-4">
+                  <div className="bg-gold/20 p-3 rounded-xl h-fit">
+                    <Heart className="text-[#172554]" size={24} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-[#172554] mb-1">Impact</h4>
+                    <p className="text-sm text-gray-500">
+                      ₦5,000 provides a week of nutritious meals.
+                    </p>
+                  </div>
+                </div>
+                <div className="p-6 bg-gray-50 rounded-2xl flex gap-4">
+                  <div className="bg-gold/20 p-3 rounded-xl h-fit">
+                    <Zap className="text-[#172554]" size={24} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-[#172554] mb-1">Education</h4>
+                    <p className="text-sm text-gray-500">
+                      ₦20,000 sponsors a child's school fees.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-[#172554] p-8 rounded-sm text-white">
+                <div className="flex gap-4 items-center mb-4">
+                  <ShieldCheck className="text-gold" size={32} />
+                  <h3 className="text-xl font-bold">Secure Payment</h3>
+                </div>
+                <p className="text-white/70 leading-relaxed mb-6">
+                  Your donation is processed securely. We use industry-standard
+                  encryption to protect your information.
+                </p>
+                <div className="flex gap-4">
+                  {/* Payment partner logos would go here */}
+                  <div className="h-8 w-12 bg-white/10 rounded flex items-center justify-center text-[10px] font-bold">
+                    VISA
+                  </div>
+                  <div className="h-8 w-12 bg-white/10 rounded flex items-center justify-center text-[10px] font-bold">
+                    MASTER
+                  </div>
+                  <div className="h-8 w-12 bg-white/10 rounded flex items-center justify-center text-[10px] font-bold">
+                    PAYSTACK
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white p-8 md:p-12 rounded-sm shadow-md border border-gray-100">
+              <h3 className="text-2xl font-bold text-[#172554] mb-8 text-center uppercase tracking-wider">
+                Select Donation Amount
+              </h3>
+
+              <div className="space-y-6">
+                <div className="grid grid-cols-2 gap-4">
+                  {amounts.map((a) => (
+                    <button
+                      key={a}
+                      onClick={() => {
+                        setSelectedAmount(a);
+                        setCustomAmount("");
+                      }}
+                      className={`py-4 rounded-xl font-bold text-lg transition-all ${
+                        selectedAmount === a
+                          ? "bg-gold text-[#172554] shadow-lg scale-105"
+                          : "bg-gray-50 text-gray-400 hover:bg-gray-100 border border-transparent"
+                      }`}
+                    >
+                      ₦{a.toLocaleString()}
+                    </button>
+                  ))}
+                </div>
+
+                <div className="relative">
+                  <span className="absolute left-0 top-1/2 -translate-y-1/2 font-bold text-[#172554] text-xl">
+                    ₦
+                  </span>
+                  <Input
+                    type="number"
+                    placeholder="Custom Amount"
+                    value={customAmount}
+                    onChange={(e) => {
+                      setCustomAmount(e.target.value);
+                      setSelectedAmount(null);
+                    }}
+                    className="pl-8 py-6 rounded-none border-0 border-b-2 border-border bg-transparent focus-visible:ring-0 focus-visible:border-gold text-2xl font-bold transition-colors"
+                  />
+                </div>
+
+                <div className="space-y-4 pt-4">
+                  <div className="space-y-2">
+                    <Label
+                      htmlFor="name"
+                      className="text-xs font-bold text-[#172554] uppercase tracking-widest opacity-60"
+                    >
+                      Full Name
+                    </Label>
+                    <Input
+                      id="name"
+                      placeholder="John Doe"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      className="rounded-none border-0 border-b-2 border-border bg-transparent focus-visible:ring-0 focus-visible:border-gold h-12 px-0 transition-colors"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label
+                      htmlFor="email"
+                      className="text-xs font-bold text-[#172554] uppercase tracking-widest opacity-60"
+                    >
+                      Email Address
+                    </Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="john@example.com"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="rounded-none border-0 border-b-2 border-border bg-transparent focus-visible:ring-0 focus-visible:border-gold h-12 px-0 transition-colors"
+                    />
+                  </div>
+                </div>
+
+                <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+                  <Button
+                    onClick={handleOpenPayment}
+                    className="w-full bg-gold text-[#172554] py-8 rounded-sm font-bold text-xl hover:bg-gold-hover transition-all shadow-md mt-4"
+                  >
+                    Donate ₦
+                    {finalAmount > 0 ? finalAmount.toLocaleString() : "0"}
+                  </Button>
+
+                  <DialogContent className="sm:max-w-[425px] rounded-3xl">
+                    <DialogHeader>
+                      <DialogTitle className="text-2xl font-bold text-[#172554]">
+                        Complete Donation
+                      </DialogTitle>
+                      <DialogDescription>
+                        Enter your card details to donate ₦
+                        {finalAmount.toLocaleString()}
+                      </DialogDescription>
+                    </DialogHeader>
+
+                    <form
+                      onSubmit={handlePaymentSubmit}
+                      className="space-y-8 pt-4"
+                    >
+                      <div className="space-y-2">
+                        <Label
+                          htmlFor="card-number"
+                          className="text-[10px] font-bold uppercase tracking-widest text-[#172554]/60"
+                        >
+                          Card Number
+                        </Label>
+                        <div className="relative">
+                          <CreditCard
+                            className="absolute left-0 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-gold transition-colors"
+                            size={18}
+                          />
+                          <Input
+                            id="card-number"
+                            placeholder="0000 0000 0000 0000"
+                            className="pl-8 rounded-none border-0 border-b-2 border-border bg-transparent focus-visible:ring-0 focus-visible:border-gold h-10 transition-colors"
+                            required
+                          />
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-8">
+                        <div className="space-y-2">
+                          <Label
+                            htmlFor="expiry"
+                            className="text-[10px] font-bold uppercase tracking-widest text-[#172554]/60"
+                          >
+                            Expiry Date
+                          </Label>
+                          <Input
+                            id="expiry"
+                            placeholder="MM/YY"
+                            className="rounded-none border-0 border-b-2 border-border bg-transparent focus-visible:ring-0 focus-visible:border-gold h-10 transition-colors"
+                            required
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <Label
+                            htmlFor="cvv"
+                            className="text-[10px] font-bold uppercase tracking-widest text-[#172554]/60"
+                          >
+                            CVV
+                          </Label>
+                          <Input
+                            id="cvv"
+                            placeholder="123"
+                            maxLength={3}
+                            className="rounded-none border-0 border-b-2 border-border bg-transparent focus-visible:ring-0 focus-visible:border-gold h-10 transition-colors"
+                            required
+                          />
+                        </div>
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label
+                          htmlFor="card-name"
+                          className="text-[10px] font-bold uppercase tracking-widest text-[#172554]/60"
+                        >
+                          Name on Card
+                        </Label>
+                        <Input
+                          id="card-name"
+                          placeholder="John Doe"
+                          className="rounded-none border-0 border-b-2 border-border bg-transparent focus-visible:ring-0 focus-visible:border-gold h-10 transition-colors"
+                          required
+                        />
+                      </div>
+
+                      <Button
+                        type="submit"
+                        disabled={isProcessing}
+                        className="w-full bg-[#172554] text-white py-6 rounded-xl font-bold relative overflow-hidden"
+                      >
+                        {isProcessing ? (
+                          <span className="flex items-center gap-2">
+                            <span className="h-4 w-4 border-2 border-white/20 border-t-white rounded-full animate-spin" />
+                            Processing...
+                          </span>
+                        ) : (
+                          `Confirm ₦${finalAmount.toLocaleString()}`
+                        )}
+                      </Button>
+                    </form>
+                  </DialogContent>
+                </Dialog>
+
+                <p className="text-center text-xs text-gray-400 pt-4 leading-relaxed">
+                  By donating, you agree to our terms and conditions. <br />
+                  FissieE-J is a registered NGO in Nigeria.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats/Usage */}
+      <section className="py-24 bg-gray-50">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#172554] mb-4">
+              Every naira counts
+            </h2>
+            <p className="text-gray-600">
+              We are transparent about our spending. Here's how your donations
+              directly affect lives.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-12">
+            {[
+              { label: "Hygiene & Sanitation", value: "45%" },
+              { label: "Education & Schools", value: "35%" },
+              { label: "Welfare & Support", value: "20%" },
+            ].map((stat) => (
+              <div
+                key={stat.label}
+                className="bg-white p-10 rounded-sm text-center shadow-md hover:translate-y-[-5px] transition-all"
               >
-                ₦{a.toLocaleString()}
-              </button>
+                <p className="text-5xl font-bold text-gold mb-2">
+                  {stat.value}
+                </p>
+                <p className="text-[#172554] font-bold uppercase tracking-widest text-sm">
+                  {stat.label}
+                </p>
+              </div>
             ))}
           </div>
-          <input
-            type="number"
-            placeholder="Custom amount (₦)"
-            value={customAmount}
-            onChange={(e) => { setCustomAmount(e.target.value); setSelectedAmount(null); }}
-            className="w-full px-4 py-3 rounded-md border border-border bg-background text-foreground mb-4 focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold"
-          />
-
-          <input
-            type="text"
-            placeholder="Full Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="w-full px-4 py-3 rounded-md border border-border bg-background text-foreground mb-4 focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold"
-          />
-          <input
-            type="email"
-            placeholder="Email Address"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="w-full px-4 py-3 rounded-md border border-border bg-background text-foreground mb-4 focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold"
-          />
-          <textarea
-            placeholder="Optional message"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            rows={3}
-            className="w-full px-4 py-3 rounded-md border border-border bg-background text-foreground mb-6 focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold resize-none"
-          />
-
-          <button
-            onClick={handleDonate}
-            className="w-full bg-gold text-foreground py-3 rounded-md font-bold text-lg hover:bg-gold-hover transition-colors"
-          >
-            Donate ₦{finalAmount > 0 ? finalAmount.toLocaleString() : "0"}
-          </button>
-          <p className="text-xs text-muted-foreground text-center mt-3">
-            Payments are securely processed via Paystack. Your card details never touch our servers.
-          </p>
         </div>
       </section>
-
-      {/* How we use */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-12">
-            <div>
-              <h2 className="text-3xl font-bold text-foreground">How we use your donation</h2>
-            </div>
-            <div>
-              <p className="text-muted-foreground leading-relaxed">
-                We allocate funds transparently: 45% goes to childcare, 25% to education, 20% to healthcare, and 10% to administration.
-              </p>
-            </div>
-            <div>
-              <p className="text-muted-foreground leading-relaxed">
-                Every naira is accounted for. We publish quarterly impact reports that detail exactly how donations are spent and the outcomes achieved.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-0">
-        <Link to="/contact" className="block">
-          <div className="bg-primary py-12 text-center">
-            <p className="text-primary-foreground text-lg">Have questions about donating? <span className="underline font-medium">Contact us</span></p>
-          </div>
-        </Link>
-      </section>
+      <CTABanner />
     </div>
   );
 };

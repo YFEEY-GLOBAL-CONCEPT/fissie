@@ -1,48 +1,87 @@
-import { Heart, Users, BookOpen, Home, Stethoscope, Megaphone } from "lucide-react";
-import aboutGroup from "@/assets/about-group.jpg";
-import outreachImg from "@/assets/project-outreach.jpg";
-import excursionImg from "@/assets/project-excursion.jpg";
-import awarenessImg from "@/assets/project-awareness.jpg";
+import {
+  Heart,
+  Users,
+  BookOpen,
+  Home,
+  Stethoscope,
+  Megaphone,
+} from "lucide-react";
+import aboutGroup from "@/assets/image copy 3.png";
+import outreachImg from "@/assets/image copy 4.png";
+import excursionImg from "@/assets/image copy.png";
+import awarenessImg from "@/assets/image copy 2.png";
 import ProjectCard from "@/components/ProjectCard";
 import CTABanner from "@/components/CTABanner";
 import EventCard from "@/components/EventCard";
 
 const services = [
-  { icon: Heart, title: "Family Support", desc: "Providing comprehensive family support services to families of children with special needs." },
-  { icon: Stethoscope, title: "Health Benefits", desc: "Access to healthcare and medical support for our children." },
-  { icon: BookOpen, title: "Education", desc: "Scholarships, educational materials, and learning support." },
-  { icon: Home, title: "Basic Amenities", desc: "Ensuring access to food, shelter, and essentials." },
-  { icon: Users, title: "Therapy", desc: "Professional therapy and counseling services." },
-  { icon: Megaphone, title: "Public Outreach", desc: "Community awareness campaigns and advocacy." },
+  {
+    icon: Heart,
+    title: "Hygiene Awareness",
+    desc: "Advancing hygiene and sanitation awareness in underserved communities through workshops and campaigns.",
+  },
+  {
+    icon: Stethoscope,
+    title: "Health & Welfare",
+    desc: "Providing medical supplies and health support to IDP camps and rural government schools.",
+  },
+  {
+    icon: BookOpen,
+    title: "Education Support",
+    desc: "Scholarships and educational materials for orphans and underprivileged children.",
+  },
+  {
+    icon: Users,
+    title: "Women Empowerment",
+    desc: "Support programs for single mothers and widows to foster self-reliance and better lives.",
+  },
+  {
+    icon: Home,
+    title: "Basic Needs",
+    desc: "Food and essential supplies for orphanages and families in extreme need.",
+  },
+  {
+    icon: Megaphone,
+    title: "Community Advocacy",
+    desc: "Advocating for the rights and well-being of the most vulnerable in our society.",
+  },
 ];
 
 const WhatWeDoPage = () => (
   <div>
     {/* Hero */}
-    <section className="bg-muted py-16">
+    <section className="bg-[#172554] py-24 text-white">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="section-label mb-4">What We Do</p>
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              We are working cross country
+            <p className="text-gold font-bold tracking-widest uppercase text-sm mb-4">
+              Our Work
+            </p>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              Transforming Lives Across Nigeria
             </h1>
-            <p className="text-muted-foreground leading-relaxed">
-              Our programs span across multiple communities, providing essential care, education, and support for children with special needs throughout Nigeria.
+            <p className="text-white/80 text-lg leading-relaxed">
+              Our initiatives reach IDP camps, rural areas, and government
+              schools, providing essential services and fostering long-term
+              health and well-being.
             </p>
           </div>
           <div className="rounded-xl overflow-hidden">
-            <img src={aboutGroup} alt="Our work" className="w-full h-72 object-cover rounded-xl" />
+            <img
+              src={aboutGroup}
+              alt="Our work"
+              className="w-full h-72 object-cover rounded-xl"
+            />
           </div>
         </div>
       </div>
     </section>
 
     {/* Services Grid */}
-    <section className="py-20 bg-section-alt">
+    <section className="py-24 bg-gray-50">
       <div className="container mx-auto px-4 lg:px-8">
-        <h2 className="text-3xl font-bold text-foreground mb-12">
-          What we do for our kids with special needs
+        <h2 className="text-4xl font-bold text-[#172554] mb-12">
+          How We Make an Impact
         </h2>
         <div className="grid md:grid-cols-3 gap-8">
           {services.map((s) => (
@@ -52,7 +91,9 @@ const WhatWeDoPage = () => (
               </div>
               <div>
                 <h4 className="font-bold text-foreground mb-2">{s.title}</h4>
-                <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {s.desc}
+                </p>
               </div>
             </div>
           ))}
@@ -68,25 +109,45 @@ const WhatWeDoPage = () => (
           We are creating a place where children with special needs can thrive
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
-          <ProjectCard image={outreachImg} title="Mission Smile 1k: Outdoor charity" description="Community outreach providing food and supplies." />
-          <ProjectCard image={excursionImg} title="Weekly Excursions" description="Fun outdoor activities and learning experiences." />
-          <ProjectCard image={awarenessImg} title="Monthly Public Awareness" description="Raising awareness about children's needs." />
+          <ProjectCard
+            image={outreachImg}
+            title="Mission Smile 1k: Outdoor charity"
+            description="Community outreach providing food and supplies."
+          />
+          <ProjectCard
+            image={excursionImg}
+            title="Weekly Excursions"
+            description="Fun outdoor activities and learning experiences."
+          />
+          <ProjectCard
+            image={awarenessImg}
+            title="Monthly Public Awareness"
+            description="Raising awareness about children's needs."
+          />
         </div>
       </div>
     </section>
-
-    <CTABanner />
 
     {/* Events */}
     <section className="py-20">
       <div className="container mx-auto px-4 lg:px-8">
         <h2 className="text-3xl font-bold text-foreground mb-8">Our Events</h2>
         <div className="grid md:grid-cols-2 gap-6">
-          <EventCard day="13" month="APR" title="A day with our wonderful children" />
-          <EventCard day="25" month="APR" title="Seminar: Caring for children with autism" />
+          <EventCard
+            day="13"
+            month="APR"
+            title="A day with our wonderful children"
+          />
+          <EventCard
+            day="25"
+            month="APR"
+            title="Seminar: Caring for children with autism"
+          />
         </div>
       </div>
     </section>
+
+    <CTABanner />
   </div>
 );
 

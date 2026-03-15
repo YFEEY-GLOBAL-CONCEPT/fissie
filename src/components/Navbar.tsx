@@ -3,9 +3,8 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { label: "Home", to: "/" },
   { label: "About Us", to: "/about" },
-  { label: "What We Do", to: "/what-we-do" },
+  { label: "Services", to: "/what-we-do" },
   { label: "Gallery", to: "/gallery" },
   { label: "Contact", to: "/contact" },
 ];
@@ -15,35 +14,51 @@ const Navbar = () => {
   const location = useLocation();
 
   return (
-    <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
+    <nav className="sticky top-0 z-50 bg-background/75 backdrop-blur-md border-b border-border">
       <div className="container mx-auto flex items-center justify-between py-4 px-4 lg:px-8">
-        <Link to="/" className="text-xl font-bold tracking-tight text-foreground">
-          FissieE-J<span className="italic text-gold">i</span>
+        <Link
+          to="/"
+          className="text-xl font-bold tracking-tight text-[#172554] flex items-center gap-2"
+        >
+          <img
+            src="/src/assets/foundation-logo.png"
+            alt="Logo"
+            className="h-8 md:h-10 w-auto"
+          />
+          <span className="inline text-lg md:text-xl">FissieE-J</span>
         </Link>
 
         {/* Desktop */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex flex-1 justify-center items-center gap-8">
           {navLinks.map((link) => (
             <Link
               key={link.to}
               to={link.to}
-              className={`text-sm font-medium transition-colors hover:text-foreground ${
-                location.pathname === link.to ? "text-foreground" : "text-muted-foreground"
+              className={`transition-colors hover:text-[#172554] ${
+                location.pathname === link.to
+                  ? "text-[#172554]"
+                  : "text-gray-500"
               }`}
             >
               {link.label}
             </Link>
           ))}
+        </div>
+
+        <div className="hidden md:block">
           <Link
             to="/donate"
-            className="bg-primary text-primary-foreground px-5 py-2 rounded-md text-sm font-medium hover:opacity-90 transition-opacity"
+            className="bg-gold text-[#172554] px-6 py-2.5 rounded-sm text-sm font-bold hover:bg-gold-hover transition-all shadow-sm"
           >
-            Donate
+            Donate Now
           </Link>
         </div>
 
         {/* Mobile toggle */}
-        <button className="md:hidden text-foreground" onClick={() => setOpen(!open)}>
+        <button
+          className="md:hidden text-foreground"
+          onClick={() => setOpen(!open)}
+        >
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
@@ -63,7 +78,7 @@ const Navbar = () => {
           ))}
           <Link
             to="/donate"
-            className="mt-3 block text-center bg-primary text-primary-foreground px-5 py-2 rounded-md text-sm font-medium"
+            className="mt-3 block text-center bg-primary text-primary-foreground px-6 py-2 text-sm font-medium"
             onClick={() => setOpen(false)}
           >
             Donate
