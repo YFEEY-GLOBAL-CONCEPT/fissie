@@ -59,14 +59,14 @@ const services = [
 const HomePage = () => (
   <div>
     {/* Hero */}
-    <section className="relative min-h-[85vh] flex items-center bg-[#172554]">
+    <section className="relative min-h-[85vh] flex items-center bg-black">
       <div className="absolute inset-0">
         <img
           src={heroImg}
           alt="Helping People, Changing Lives"
-          className="w-full h-full object-cover opacity-60"
+          className="w-full h-full object-cover opacity-50"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#172554] to-transparent" />
+        <div className="absolute inset-0" />
       </div>
       <div className="relative z-10 container mx-auto px-4 lg:px-8 py-20">
         <motion.div

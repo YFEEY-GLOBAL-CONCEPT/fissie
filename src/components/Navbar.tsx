@@ -5,7 +5,7 @@ import foundationLogo from "@/assets/foundation-logo.png";
 
 const navLinks = [
   { label: "About Us", to: "/about" },
-  { label: "Services", to: "/what-we-do" },
+  { label: "programs", to: "/what-we-do" },
   { label: "Events", to: "/events" },
   { label: "Gallery", to: "/gallery" },
   { label: "Contact", to: "/contact" },
@@ -22,12 +22,11 @@ const Navbar = () => {
           to="/"
           className="text-xl font-bold tracking-tight text-[#172554] flex items-center gap-2"
         >
-          <img
-            src={foundationLogo}
-            alt="Logo"
-            className="h-8 md:h-10 w-auto"
-          />
-          <span className="inline text-lg md:text-xl">FissieE-J</span>
+          <img src={foundationLogo} alt="Logo" className="h-8 md:h-10 w-auto" />
+          <span className="inline text-lg md:text-xl">
+            {" "}
+            FissieE-J Helping Hands Foundation
+          </span>
         </Link>
 
         {/* Desktop */}

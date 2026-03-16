@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import foundationLogo from "@/assets/foundation-logo.png";
 
 const Footer = () => (
-  <footer className="bg-black text-white">
+  <footer className="bg-[#172554] text-white">
     <div className="container mx-auto px-4 lg:px-8 py-16">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
         <div className="lg:col-span-2">
@@ -89,22 +89,42 @@ const Footer = () => (
           <h4 className="font-bold mb-4">Connect</h4>
           <ul className="space-y-2 text-sm opacity-80">
             <li>
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-100">
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:opacity-100"
+              >
                 Facebook
               </a>
             </li>
             <li>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-100">
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:opacity-100"
+              >
                 Instagram
               </a>
             </li>
             <li>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-100">
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:opacity-100"
+              >
                 Twitter
               </a>
             </li>
             <li>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-100">
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:opacity-100"
+              >
                 LinkedIn
               </a>
             </li>
