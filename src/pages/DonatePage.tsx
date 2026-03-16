@@ -25,6 +25,7 @@ const DonatePage = () => {
   const [email, setEmail] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
+  const [paymentMethod, setPaymentMethod] = useState("card");
 
   const finalAmount = selectedAmount || Number(customAmount) || 0;
 
@@ -238,8 +239,7 @@ const DonatePage = () => {
                         Complete Donation
                       </DialogTitle>
                       <DialogDescription>
-                        Enter your card details to donate ₦
-                        {finalAmount.toLocaleString()}
+                        Complete your donation of ₦{finalAmount.toLocaleString()}
                       </DialogDescription>
                     </DialogHeader>
 
@@ -247,73 +247,121 @@ const DonatePage = () => {
                       onSubmit={handlePaymentSubmit}
                       className="space-y-8 pt-4"
                     >
-                      <div className="space-y-2">
-                        <Label
-                          htmlFor="card-number"
-                          className="text-[10px] font-bold uppercase tracking-widest text-[#172554]/60"
-                        >
-                          Card Number
-                        </Label>
-                        <div className="relative">
-                          <CreditCard
-                            className="absolute left-0 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-gold transition-colors"
-                            size={18}
-                          />
-                          <Input
-                            id="card-number"
-                            placeholder="0000 0000 0000 0000"
-                            className="pl-8 rounded-none border-0 border-b-2 border-border bg-transparent focus-visible:ring-0 focus-visible:border-gold h-10 transition-colors"
-                            required
-                          />
-                        </div>
+                      <div className="flex gap-2 mb-6 border-b border-gray-100 pb-4 overflow-x-auto no-scrollbar">
+                        {["card", "bank", "ussd", "mobile"].map((method) => (
+                          <button
+                            key={method}
+                            type="button"
+                            onClick={() => setPaymentMethod(method)}
+                            className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-md transition-colors ${
+                              paymentMethod === method
+                                ? "bg-[#172554] text-white"
+                                : "bg-gray-50 text-gray-500 hover:bg-gray-100"
+                            }`}
+                          >
+                            {method}
+                          </button>
+                        ))}
                       </div>
 
-                      <div className="grid grid-cols-2 gap-8">
-                        <div className="space-y-2">
-                          <Label
-                            htmlFor="expiry"
-                            className="text-[10px] font-bold uppercase tracking-widest text-[#172554]/60"
-                          >
-                            Expiry Date
-                          </Label>
-                          <Input
-                            id="expiry"
-                            placeholder="MM/YY"
-                            className="rounded-none border-0 border-b-2 border-border bg-transparent focus-visible:ring-0 focus-visible:border-gold h-10 transition-colors"
-                            required
-                          />
-                        </div>
-                        <div className="space-y-2">
-                          <Label
-                            htmlFor="cvv"
-                            className="text-[10px] font-bold uppercase tracking-widest text-[#172554]/60"
-                          >
-                            CVV
-                          </Label>
-                          <Input
-                            id="cvv"
-                            placeholder="123"
-                            maxLength={3}
-                            className="rounded-none border-0 border-b-2 border-border bg-transparent focus-visible:ring-0 focus-visible:border-gold h-10 transition-colors"
-                            required
-                          />
-                        </div>
-                      </div>
+                      {paymentMethod === "card" && (
+                        <>
+                          <div className="space-y-2">
+                            <Label
+                              htmlFor="card-number"
+                              className="text-[10px] font-bold uppercase tracking-widest text-[#172554]/60"
+                            >
+                              Card Number
+                            </Label>
+                            <div className="relative">
+                              <CreditCard
+                                className="absolute left-0 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-gold transition-colors"
+                                size={18}
+                              />
+                              <Input
+                                id="card-number"
+                                placeholder="0000 0000 0000 0000"
+                                className="pl-8 rounded-none border-0 border-b-2 border-border bg-transparent focus-visible:ring-0 focus-visible:border-gold h-10 transition-colors"
+                                required
+                              />
+                            </div>
+                          </div>
 
-                      <div className="space-y-2">
-                        <Label
-                          htmlFor="card-name"
-                          className="text-[10px] font-bold uppercase tracking-widest text-[#172554]/60"
-                        >
-                          Name on Card
-                        </Label>
-                        <Input
-                          id="card-name"
-                          placeholder="John Doe"
-                          className="rounded-none border-0 border-b-2 border-border bg-transparent focus-visible:ring-0 focus-visible:border-gold h-10 transition-colors"
-                          required
-                        />
-                      </div>
+                          <div className="grid grid-cols-2 gap-8">
+                            <div className="space-y-2">
+                              <Label
+                                htmlFor="expiry"
+                                className="text-[10px] font-bold uppercase tracking-widest text-[#172554]/60"
+                              >
+                                Expiry Date
+                              </Label>
+                              <Input
+                                id="expiry"
+                                placeholder="MM/YY"
+                                className="rounded-none border-0 border-b-2 border-border bg-transparent focus-visible:ring-0 focus-visible:border-gold h-10 transition-colors"
+                                required
+                              />
+                            </div>
+                            <div className="space-y-2">
+                              <Label
+                                htmlFor="cvv"
+                                className="text-[10px] font-bold uppercase tracking-widest text-[#172554]/60"
+                              >
+                                CVV
+                              </Label>
+                              <Input
+                                id="cvv"
+                                placeholder="123"
+                                maxLength={3}
+                                className="rounded-none border-0 border-b-2 border-border bg-transparent focus-visible:ring-0 focus-visible:border-gold h-10 transition-colors"
+                                required
+                              />
+                            </div>
+                          </div>
+
+                          <div className="space-y-2">
+                            <Label
+                              htmlFor="card-name"
+                              className="text-[10px] font-bold uppercase tracking-widest text-[#172554]/60"
+                            >
+                              Name on Card
+                            </Label>
+                            <Input
+                              id="card-name"
+                              placeholder="John Doe"
+                              className="rounded-none border-0 border-b-2 border-border bg-transparent focus-visible:ring-0 focus-visible:border-gold h-10 transition-colors"
+                              required
+                            />
+                          </div>
+                        </>
+                      )}
+
+                      {paymentMethod === "bank" && (
+                        <div className="p-4 bg-gray-50 rounded-lg text-sm text-center">
+                          <p className="font-bold text-[#172554] mb-2">Transfer to:</p>
+                          <p className="font-mono text-lg mb-1">0123456789</p>
+                          <p className="font-medium text-gray-600">GTBank - FissieE-J Foundation</p>
+                          <p className="text-xs text-gray-400 mt-4">Transfers will be verified automatically.</p>
+                        </div>
+                      )}
+
+                      {paymentMethod === "ussd" && (
+                        <div className="p-4 bg-gray-50 rounded-lg text-sm text-center">
+                          <p className="font-bold text-[#172554] mb-2">Dial the shortcode:</p>
+                          <p className="font-mono text-xl font-bold text-gold mb-1">*737*000*45#</p>
+                          <p className="text-xs text-gray-400 mt-4">Follow the prompts to complete payment.</p>
+                        </div>
+                      )}
+
+                      {paymentMethod === "mobile" && (
+                        <div className="space-y-4">
+                          <div className="space-y-2 mt-4">
+                             <Label className="text-[10px] font-bold uppercase tracking-widest text-[#172554]/60">Mobile Number</Label>
+                             <Input placeholder="08012345678" className="border-b-2 rounded-none" required />
+                          </div>
+                          <p className="text-xs text-center text-gray-400">Supported networks: MTN, Airtel, Glo</p>
+                        </div>
+                      )}
 
                       <Button
                         type="submit"

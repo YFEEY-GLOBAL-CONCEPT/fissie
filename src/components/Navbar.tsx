@@ -6,6 +6,7 @@ import foundationLogo from "@/assets/foundation-logo.png";
 const navLinks = [
   { label: "About Us", to: "/about" },
   { label: "Services", to: "/what-we-do" },
+  { label: "Events", to: "/events" },
   { label: "Gallery", to: "/gallery" },
   { label: "Contact", to: "/contact" },
 ];

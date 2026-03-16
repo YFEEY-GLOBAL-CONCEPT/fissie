@@ -58,7 +58,7 @@ const Footer = () => (
               </Link>
             </li>
             <li>
-              <Link to="/what-we-do" className="hover:opacity-100">
+              <Link to="/events" className="hover:opacity-100">
                 Events
               </Link>
             </li>
@@ -68,17 +68,17 @@ const Footer = () => (
               </Link>
             </li>
             <li>
-              <Link to="/privacy-policy" className="hover:opacity-100">
+              <Link to="/terms-and-privacy" className="hover:opacity-100">
                 Privacy Policy
               </Link>
             </li>
             <li>
-              <Link to="/terms-and-conditions" className="hover:opacity-100">
-                Terms and Condition
+              <Link to="/terms-and-privacy" className="hover:opacity-100">
+                Terms and Conditions
               </Link>
             </li>
             <li>
-              <Link to="/admin" className="hover:opacity-100">
+              <Link to="/auth" className="hover:opacity-100">
                 Admin
               </Link>
             </li>
@@ -89,22 +89,22 @@ const Footer = () => (
           <h4 className="font-bold mb-4">Connect</h4>
           <ul className="space-y-2 text-sm opacity-80">
             <li>
-              <a href="#" className="hover:opacity-100">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-100">
                 Facebook
               </a>
             </li>
             <li>
-              <a href="#" className="hover:opacity-100">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-100">
                 Instagram
               </a>
             </li>
             <li>
-              <a href="#" className="hover:opacity-100">
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-100">
                 Twitter
               </a>
             </li>
             <li>
-              <a href="#" className="hover:opacity-100">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-100">
                 LinkedIn
               </a>
             </li>
