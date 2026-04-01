@@ -206,7 +206,7 @@ const HomePage = () => (
           <ProjectCard
             image={awarenessImg}
             title="Monthly Public Awareness"
-            description="Raising awareness about the needs of children with special needs."
+            description="Raising awareness about hygiene, sanitation, and community welfare."
           />
         </div>
       </div>
