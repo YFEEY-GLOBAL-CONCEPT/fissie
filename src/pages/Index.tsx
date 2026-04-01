@@ -196,7 +196,7 @@ const HomePage = () => (
           <ProjectCard
             image={outreachImg}
             title="Mission Smile 1k: Outdoor charity"
-            description="Community outreach providing food and supplies to children in need."
+            description="Community outreach providing food and supplies to those in need."
           />
           <ProjectCard
             image={excursionImg}
