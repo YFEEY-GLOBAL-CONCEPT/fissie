@@ -222,11 +222,10 @@ const HomePage = () => (
           IDP camps, rural areas, and government schools, plus food and
           essential supplies for orphanages.
         </p>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-12">
           <ImpactCounter end={1000} label="Lives Impacted" suffix="+" />
-          <ImpactCounter end={50} label="Schools Reached" suffix="+" />
-          <ImpactCounter end={8} label="IDP Camps Visited" />
-          <ImpactCounter end={10} label="Years Active" suffix="+" />
+          <ImpactCounter end={2} label="Years Active" suffix="+" />
+          <ImpactCounter end={10} label="Communities Served" suffix="+" />
         </div>
       </div>
     </section>
