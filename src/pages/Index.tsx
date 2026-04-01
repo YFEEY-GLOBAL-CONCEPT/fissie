@@ -190,7 +190,7 @@ const HomePage = () => (
       <div className="container mx-auto px-4 lg:px-8">
         <p className="section-label mb-4">Projects We Have Done</p>
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-10 max-w-lg">
-          We are creating a place where children with special needs can thrive
+          We aim to expand hygiene education across all ages, partner with companies and schools to reach more people, help clean up slums
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
           <ProjectCard
