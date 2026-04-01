@@ -73,7 +73,7 @@ const DonatePage = () => {
               Support Our Cause
             </p>
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-              Making a donation for our children.
+              Making a donation for our communities.
             </h1>
             <p className="text-xl text-white/80 mb-8 leading-relaxed">
               When you donate, you're supporting effective care to single
@@ -118,8 +118,8 @@ const DonatePage = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-[#172554] mb-1">Education</h4>
-                    <p className="text-sm text-gray-500">
-                      ₦20,000 sponsors a child's school fees.
+                     <p className="text-sm text-gray-500">
+                      ₦20,000 sponsors educational materials for a community.
                     </p>
                   </div>
                 </div>

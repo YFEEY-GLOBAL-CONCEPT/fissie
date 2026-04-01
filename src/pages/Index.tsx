@@ -26,33 +26,33 @@ import gallery5 from "@/assets/team-img.png";
 const services = [
   {
     icon: Heart,
-    title: "Family Support",
-    desc: "Providing comprehensive family support services to families of children with special needs.",
+    title: "Hygiene Awareness",
+    desc: "Advancing hygiene and sanitation awareness in underserved communities through workshops and campaigns.",
   },
   {
     icon: Stethoscope,
-    title: "Health Benefits",
-    desc: "Access to healthcare, therapy sessions, and medical support for our children.",
+    title: "Health & Welfare",
+    desc: "Providing medical supplies and health support to IDP camps and rural communities.",
   },
   {
     icon: BookOpen,
-    title: "Education",
-    desc: "Scholarships, educational materials, and learning support for every child.",
+    title: "Education Support",
+    desc: "Scholarships and educational materials for orphans and underprivileged individuals.",
   },
   {
     icon: HomeIcon,
-    title: "Basic Amenities",
-    desc: "Ensuring access to food, shelter, and essential living needs.",
+    title: "Basic Needs",
+    desc: "Food and essential supplies for orphanages and families in extreme need.",
   },
   {
     icon: Users,
-    title: "Therapy",
-    desc: "Professional therapy and counseling services for emotional wellbeing.",
+    title: "Women Empowerment",
+    desc: "Support programs for single mothers and widows to foster self-reliance.",
   },
   {
     icon: Megaphone,
-    title: "Public Outreach",
-    desc: "Community awareness campaigns and advocacy for children's rights.",
+    title: "Community Advocacy",
+    desc: "Advocating for the rights and well-being of the most vulnerable in our society.",
   },
 ];
 
@@ -159,11 +159,11 @@ const HomePage = () => (
           <div>
             <p className="section-label mb-4">What We Do</p>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8">
-              Some services we provide for our children
+              Services we provide for our communities
             </h2>
             <p className="text-muted-foreground mb-8 leading-relaxed">
-              We offer a comprehensive range of services designed to support the
-              holistic development of children with special needs.
+              We offer a comprehensive range of services designed to support
+              underserved communities across Nigeria.
             </p>
             <div className="space-y-6">
               {services.slice(0, 4).map((s) => (
@@ -190,23 +190,23 @@ const HomePage = () => (
       <div className="container mx-auto px-4 lg:px-8">
         <p className="section-label mb-4">Projects We Have Done</p>
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-10 max-w-lg">
-          We are creating a place where children with special needs can thrive
+          We aim to expand hygiene education across all ages, partner with companies and schools to reach more people, help clean up slums
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
           <ProjectCard
             image={outreachImg}
             title="Mission Smile 1k: Outdoor charity"
-            description="Community outreach providing food and supplies to children in need."
+            description="Community outreach providing food and supplies to those in need."
           />
           <ProjectCard
             image={excursionImg}
             title="Weekly Excursions"
-            description="Fun outdoor activities and learning experiences for our children."
+            description="Fun outdoor activities and learning experiences for communities."
           />
           <ProjectCard
             image={awarenessImg}
             title="Monthly Public Awareness"
-            description="Raising awareness about the needs of children with special needs."
+            description="Raising awareness about hygiene, sanitation, and community welfare."
           />
         </div>
       </div>
@@ -222,11 +222,10 @@ const HomePage = () => (
           IDP camps, rural areas, and government schools, plus food and
           essential supplies for orphanages.
         </p>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-12">
           <ImpactCounter end={1000} label="Lives Impacted" suffix="+" />
-          <ImpactCounter end={50} label="Schools Reached" suffix="+" />
-          <ImpactCounter end={8} label="IDP Camps Visited" />
-          <ImpactCounter end={10} label="Years Active" suffix="+" />
+          <ImpactCounter end={2} label="Years Active" suffix="+" />
+          <ImpactCounter end={10} label="Communities Served" suffix="+" />
         </div>
       </div>
     </section>
@@ -239,12 +238,12 @@ const HomePage = () => (
           <EventCard
             day="13"
             month="APR"
-            title="A day with our wonderful children"
+            title="Community hygiene awareness outreach"
           />
           <EventCard
             day="25"
             month="APR"
-            title="Seminar: Caring for children with autism"
+            title="Seminar: Empowering single mothers & widows"
           />
         </div>
       </div>

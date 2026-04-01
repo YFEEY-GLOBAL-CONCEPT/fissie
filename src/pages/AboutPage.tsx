@@ -68,10 +68,10 @@ const AboutPage = () => (
           </div>
           <div>
             <p className="leading-relaxed">
-              FissieE-J Helping Hands Foundation is committed to providing
-              inclusive care for children with special needs. We work across
-              communities in Nigeria to ensure that every child has access to
-              education, healthcare, and the basic amenities they deserve.
+              FissieE-J Helping Hands Foundation is committed to restoring
+              dignity and hope for single mothers, widows, and orphans. We work
+              across communities in Nigeria to advance hygiene awareness,
+              provide essential welfare support, and empower the vulnerable.
             </p>
           </div>
         </div>
@@ -95,14 +95,13 @@ const AboutPage = () => (
               Our Mission
             </p>
             <h3 className="text-2xl font-bold text-foreground mb-4">
-              We make sure to provide inclusive care for children with special
-              needs
+              To restore dignity and hope for single mothers, widows, and
+              orphans through hygiene awareness, education, and welfare support
             </h3>
             <p className="text-muted-foreground leading-relaxed">
-              Our mission is to create an environment where every child,
-              regardless of their abilities, can access quality education,
-              healthcare, and emotional support. We believe in building strong
-              communities that uplift every member.
+              Our mission is to empower underserved communities through hygiene
+              and sanitation campaigns, educational support, and essential
+              welfare programs that create lasting positive change.
             </p>
           </div>
           <div>
@@ -110,12 +109,13 @@ const AboutPage = () => (
               Our Vision
             </p>
             <h3 className="text-2xl font-bold text-foreground mb-4">
-              Provide more inclusive care to children around the world
+              A Nigeria where every community has access to hygiene, education,
+              and essential welfare
             </h3>
             <p className="text-muted-foreground leading-relaxed">
-              We envision a world where no child is left behind. Our vision
-              extends beyond borders, aiming to replicate our model of inclusive
-              care in communities across Africa and beyond.
+              We envision a society where no one is left behind—where single
+              mothers, widows, and orphans have the support they need to thrive
+              and live with dignity.
             </p>
           </div>
         </div>
@@ -140,8 +140,8 @@ const AboutPage = () => (
             </p>
             <div className="grid grid-cols-3 gap-6">
               <ImpactCounter end={1000} suffix="+" label="Lives Impacted" />
-              <ImpactCounter end={50} suffix="+" label="Schools" />
-              <ImpactCounter end={8} label="IDP Camps" />
+              <ImpactCounter end={2} suffix="+" label="Years Active" />
+              <ImpactCounter end={10} suffix="+" label="Communities" />
             </div>
           </div>
           <div className="rounded-xl overflow-hidden">
@@ -262,12 +262,12 @@ const AboutPage = () => (
           <EventCard
             day="13"
             month="APR"
-            title="A day with our wonderful children"
+            title="Community hygiene awareness outreach"
           />
           <EventCard
             day="25"
             month="APR"
-            title="Seminar: Caring for children with autism"
+            title="Seminar: Empowering single mothers & widows"
           />
         </div>
       </div>
