@@ -42,27 +42,27 @@ const ContactPage = () => {
           <div className="grid md:grid-cols-2 gap-12">
             <div>
               <p className="text-gold font-bold tracking-widest uppercase text-sm mb-4">Contact Us</p>
-              <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+               <h1 className="text-4xl md:text-5xl font-bold text-hero-foreground mb-4">
                 We'd love to hear from you
-              </h1>
-              <p className="text-muted-foreground leading-relaxed">
+               </h1>
+               <p className="text-hero-foreground/80 leading-relaxed">
                 Have any question in mind or want to enquire? Please feel free to contact us through the form or the following details.
-              </p>
-            </div>
-            <div className="space-y-6">
+               </p>
+             </div>
+             <div className="space-y-6">
               <div>
-                <h3 className="text-lg font-bold text-foreground mb-1">Let's talk!</h3>
-                <p className="text-sm text-muted-foreground">+234 802 316 5665 &nbsp;&nbsp; hello@fissieej.com</p>
+                <h3 className="text-lg font-bold text-hero-foreground mb-1">Let's talk!</h3>
+                <p className="text-sm text-hero-foreground/80">+234 802 316 5665 &nbsp;&nbsp; hello@fissieej.com</p>
               </div>
               <div>
-                <h4 className="font-bold text-foreground mb-1">Primary Location</h4>
-                <p className="text-sm text-muted-foreground uppercase tracking-wider mb-1 font-semibold text-gold">Abuja</p>
-                <p className="text-sm text-muted-foreground">fissie J close jahi 1, Abuja, Nigeria.</p>
+                <h4 className="font-bold text-hero-foreground mb-1">Primary Location</h4>
+                <p className="text-sm uppercase tracking-wider mb-1 font-semibold text-gold">Abuja</p>
+                <p className="text-sm text-hero-foreground/80">fissie J close jahi 1, Abuja, Nigeria.</p>
               </div>
               <div className="flex gap-4">
-                <a href="#" className="text-foreground hover:text-gold transition-colors"><Facebook size={20} /></a>
-                <a href="#" className="text-foreground hover:text-gold transition-colors"><Twitter size={20} /></a>
-                <a href="#" className="text-foreground hover:text-gold transition-colors"><Linkedin size={20} /></a>
+                <a href="#" className="text-hero-foreground hover:text-gold transition-colors"><Facebook size={20} /></a>
+                <a href="#" className="text-hero-foreground hover:text-gold transition-colors"><Twitter size={20} /></a>
+                <a href="#" className="text-hero-foreground hover:text-gold transition-colors"><Linkedin size={20} /></a>
               </div>
             </div>
           </div>
