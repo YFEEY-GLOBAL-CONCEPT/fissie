@@ -159,11 +159,11 @@ const HomePage = () => (
           <div>
             <p className="section-label mb-4">What We Do</p>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8">
-              Some services we provide for our children
+              Services we provide for our communities
             </h2>
             <p className="text-muted-foreground mb-8 leading-relaxed">
-              We offer a comprehensive range of services designed to support the
-              holistic development of children with special needs.
+              We offer a comprehensive range of services designed to support
+              underserved communities across Nigeria.
             </p>
             <div className="space-y-6">
               {services.slice(0, 4).map((s) => (
