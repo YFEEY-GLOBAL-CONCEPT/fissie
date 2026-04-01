@@ -95,14 +95,13 @@ const AboutPage = () => (
               Our Mission
             </p>
             <h3 className="text-2xl font-bold text-foreground mb-4">
-              We make sure to provide inclusive care for children with special
-              needs
+              To restore dignity and hope for single mothers, widows, and
+              orphans through hygiene awareness, education, and welfare support
             </h3>
             <p className="text-muted-foreground leading-relaxed">
-              Our mission is to create an environment where every child,
-              regardless of their abilities, can access quality education,
-              healthcare, and emotional support. We believe in building strong
-              communities that uplift every member.
+              Our mission is to empower underserved communities through hygiene
+              and sanitation campaigns, educational support, and essential
+              welfare programs that create lasting positive change.
             </p>
           </div>
           <div>
