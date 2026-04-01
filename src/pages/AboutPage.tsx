@@ -140,8 +140,8 @@ const AboutPage = () => (
             </p>
             <div className="grid grid-cols-3 gap-6">
               <ImpactCounter end={1000} suffix="+" label="Lives Impacted" />
-              <ImpactCounter end={50} suffix="+" label="Schools" />
-              <ImpactCounter end={8} label="IDP Camps" />
+              <ImpactCounter end={2} suffix="+" label="Years Active" />
+              <ImpactCounter end={10} suffix="+" label="Communities" />
             </div>
           </div>
           <div className="rounded-xl overflow-hidden">
