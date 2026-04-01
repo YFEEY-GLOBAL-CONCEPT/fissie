@@ -201,7 +201,7 @@ const HomePage = () => (
           <ProjectCard
             image={excursionImg}
             title="Weekly Excursions"
-            description="Fun outdoor activities and learning experiences for our children."
+            description="Fun outdoor activities and learning experiences for communities."
           />
           <ProjectCard
             image={awarenessImg}
