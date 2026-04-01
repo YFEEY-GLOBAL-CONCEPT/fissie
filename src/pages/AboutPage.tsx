@@ -9,7 +9,7 @@ import heroImg from "@/assets/hero-bg.jpg";
 import ImpactCounter from "@/components/ImpactCounter";
 import CTABanner from "@/components/CTABanner";
 import EventCard from "@/components/EventCard";
-import founderImg from "@/assets/founder.png";
+import founderImg from "@/assets/founder.jpg";
 import coFounderImg from "@/assets/co-founder.png";
 const team = [
   {
