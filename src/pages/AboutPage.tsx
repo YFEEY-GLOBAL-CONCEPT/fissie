@@ -230,7 +230,7 @@ const AboutPage = () => (
                   <img
                     src={member.img}
                     alt={member.name}
-                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 hover:scale-105"
+                    className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-700 hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 lg:hidden" />
                 </div>
@@ -244,7 +244,7 @@ const AboutPage = () => (
                     {member.role}
                   </p>
                 </div>
-                <p className="text-gray-600 leading-relaxed text-lg lg:text-xl font-medium px-2">
+                <p className="text-muted-foreground leading-relaxed text-lg lg:text-xl font-sans text-justify px-2">
                   {member.bio}
                 </p>
               </div>
