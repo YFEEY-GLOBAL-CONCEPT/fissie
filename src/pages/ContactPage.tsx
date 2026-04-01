@@ -52,7 +52,11 @@ const ContactPage = () => {
              <div className="space-y-6">
               <div>
                 <h3 className="text-lg font-bold text-hero-foreground mb-1">Let's talk!</h3>
-                <p className="text-sm text-hero-foreground/80">+234 802 316 5665 &nbsp;&nbsp; hello@fissieej.com</p>
+                <p className="text-sm font-semibold text-gold mb-1">Primary Contact</p>
+                <p className="text-sm text-hero-foreground/80">+234 703 686 9240</p>
+                <p className="text-sm font-semibold text-gold mt-2 mb-1">Alternative Contact</p>
+                <p className="text-sm text-hero-foreground/80">+234 802 316 5665</p>
+                <p className="text-sm text-hero-foreground/80 mt-2">hello@fissieej.com</p>
               </div>
               <div>
                 <h4 className="font-bold text-hero-foreground mb-1">Primary Location</h4>
