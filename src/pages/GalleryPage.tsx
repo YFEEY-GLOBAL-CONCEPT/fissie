@@ -30,7 +30,7 @@ const GalleryPage = () => {
     <div>
       <section className="bg-hero-bg py-16 text-hero-foreground">
         <div className="container mx-auto px-4 lg:px-8">
-          <p className="section-label mb-4">Our Gallery</p>
+          <p className="text-gold font-bold tracking-widest uppercase text-sm mb-4">Our Gallery</p>
           <h1 className="text-4xl md:text-5xl font-bold text-hero-foreground">
             Moments of Impact
           </h1>

@@ -41,7 +41,7 @@ const ContactPage = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12">
             <div>
-              <p className="section-label mb-4">Contact Us</p>
+              <p className="text-gold font-bold tracking-widest uppercase text-sm mb-4">Contact Us</p>
               <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
                 We'd love to hear from you
               </h1>
