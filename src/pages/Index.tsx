@@ -238,12 +238,12 @@ const HomePage = () => (
           <EventCard
             day="13"
             month="APR"
-            title="A day with our wonderful children"
+            title="Community hygiene awareness outreach"
           />
           <EventCard
             day="25"
             month="APR"
-            title="Seminar: Caring for children with autism"
+            title="Seminar: Empowering single mothers & widows"
           />
         </div>
       </div>

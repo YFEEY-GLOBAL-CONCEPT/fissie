@@ -118,8 +118,8 @@ const DonatePage = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-[#172554] mb-1">Education</h4>
-                    <p className="text-sm text-gray-500">
-                      ₦20,000 sponsors a child's school fees.
+                     <p className="text-sm text-gray-500">
+                      ₦20,000 sponsors educational materials for a community.
                     </p>
                   </div>
                 </div>
