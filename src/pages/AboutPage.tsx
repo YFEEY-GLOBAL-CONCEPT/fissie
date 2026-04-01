@@ -109,12 +109,13 @@ const AboutPage = () => (
               Our Vision
             </p>
             <h3 className="text-2xl font-bold text-foreground mb-4">
-              Provide more inclusive care to children around the world
+              A Nigeria where every community has access to hygiene, education,
+              and essential welfare
             </h3>
             <p className="text-muted-foreground leading-relaxed">
-              We envision a world where no child is left behind. Our vision
-              extends beyond borders, aiming to replicate our model of inclusive
-              care in communities across Africa and beyond.
+              We envision a society where no one is left behind—where single
+              mothers, widows, and orphans have the support they need to thrive
+              and live with dignity.
             </p>
           </div>
         </div>
