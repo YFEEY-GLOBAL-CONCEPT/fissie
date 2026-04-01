@@ -26,33 +26,33 @@ import gallery5 from "@/assets/team-img.png";
 const services = [
   {
     icon: Heart,
-    title: "Family Support",
-    desc: "Providing comprehensive family support services to families of children with special needs.",
+    title: "Hygiene Awareness",
+    desc: "Advancing hygiene and sanitation awareness in underserved communities through workshops and campaigns.",
   },
   {
     icon: Stethoscope,
-    title: "Health Benefits",
-    desc: "Access to healthcare, therapy sessions, and medical support for our children.",
+    title: "Health & Welfare",
+    desc: "Providing medical supplies and health support to IDP camps and rural communities.",
   },
   {
     icon: BookOpen,
-    title: "Education",
-    desc: "Scholarships, educational materials, and learning support for every child.",
+    title: "Education Support",
+    desc: "Scholarships and educational materials for orphans and underprivileged individuals.",
   },
   {
     icon: HomeIcon,
-    title: "Basic Amenities",
-    desc: "Ensuring access to food, shelter, and essential living needs.",
+    title: "Basic Needs",
+    desc: "Food and essential supplies for orphanages and families in extreme need.",
   },
   {
     icon: Users,
-    title: "Therapy",
-    desc: "Professional therapy and counseling services for emotional wellbeing.",
+    title: "Women Empowerment",
+    desc: "Support programs for single mothers and widows to foster self-reliance.",
   },
   {
     icon: Megaphone,
-    title: "Public Outreach",
-    desc: "Community awareness campaigns and advocacy for children's rights.",
+    title: "Community Advocacy",
+    desc: "Advocating for the rights and well-being of the most vulnerable in our society.",
   },
 ];
 
