@@ -68,10 +68,10 @@ const AboutPage = () => (
           </div>
           <div>
             <p className="leading-relaxed">
-              FissieE-J Helping Hands Foundation is committed to providing
-              inclusive care for children with special needs. We work across
-              communities in Nigeria to ensure that every child has access to
-              education, healthcare, and the basic amenities they deserve.
+              FissieE-J Helping Hands Foundation is committed to restoring
+              dignity and hope for single mothers, widows, and orphans. We work
+              across communities in Nigeria to advance hygiene awareness,
+              provide essential welfare support, and empower the vulnerable.
             </p>
           </div>
         </div>
