@@ -37,7 +37,7 @@ const ContactPage = () => {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-muted py-16">
+      <section className="bg-hero-bg py-16 text-hero-foreground">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12">
             <div>
