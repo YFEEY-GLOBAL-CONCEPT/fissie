@@ -73,7 +73,7 @@ const DonatePage = () => {
               Support Our Cause
             </p>
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-              Making a donation for our children.
+              Making a donation for our communities.
             </h1>
             <p className="text-xl text-white/80 mb-8 leading-relaxed">
               When you donate, you're supporting effective care to single
