@@ -61,6 +61,7 @@ const App = () => (
         </Routes>
         <Footer />
         <WhatsAppButton />
+        <CookieConsent />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
