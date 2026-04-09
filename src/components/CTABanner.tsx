@@ -12,9 +12,12 @@ const CTABanner = () => (
         Join us in making a difference!
       </h2>
       <div className="flex items-center justify-center gap-4 flex-wrap">
-        <button className="bg-gold text-foreground px-6 py-3 rounded-md font-medium hover:bg-gold-hover transition-colors">
+        <Link
+          to="/contact"
+          className="bg-gold text-foreground px-6 py-3 rounded-md font-medium hover:bg-gold-hover transition-colors"
+        >
           Join as a volunteer
-        </button>
+        </Link>
         <Link
           to="/donate"
           className="bg-background text-foreground px-6 py-3 rounded-md font-medium hover:bg-muted transition-colors"
