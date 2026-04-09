@@ -34,6 +34,11 @@ const ContactPage = () => {
     });
   };
 
+  const handleSocialClick = (platform: string) => (e: React.MouseEvent) => {
+    e.preventDefault();
+    toast.info(`Our ${platform} page is coming soon!`);
+  };
+
   return (
     <div>
       {/* Hero */}
@@ -53,20 +58,20 @@ const ContactPage = () => {
               <div>
                 <h3 className="text-lg font-bold text-hero-foreground mb-1">Let's talk!</h3>
                 <p className="text-sm font-semibold text-gold mb-1">Primary Contact</p>
-                <p className="text-sm text-hero-foreground/80">+234 703 686 9240</p>
-                <p className="text-sm font-semibold text-gold mt-2 mb-1">Alternative Contact</p>
-                <p className="text-sm text-hero-foreground/80">+234 802 316 5665</p>
-                <p className="text-sm text-hero-foreground/80 mt-2">hello@fissieej.com</p>
+                <a href="tel:+2347036869240" className="text-sm text-hero-foreground/80 hover:text-gold transition-colors block">+234 703 686 9240</a>
+                <p className="text-sm font-semibold text-gold mt-3 mb-1">Alternative Contact</p>
+                <a href="tel:+2348023165665" className="text-sm text-hero-foreground/80 hover:text-gold transition-colors block">+234 802 316 5665</a>
+                <a href="mailto:hello@fissieej.com" className="text-sm text-hero-foreground/80 hover:text-gold transition-colors block mt-3">hello@fissieej.com</a>
               </div>
               <div>
                 <h4 className="font-bold text-hero-foreground mb-1">Primary Location</h4>
                 <p className="text-sm uppercase tracking-wider mb-1 font-semibold text-gold">Abuja</p>
-                <p className="text-sm text-hero-foreground/80">fissie J close jahi 1, Abuja, Nigeria.</p>
+                <p className="text-sm text-hero-foreground/80">Fissie J Close, Jahi 1, Abuja, Nigeria.</p>
               </div>
               <div className="flex gap-4">
-                <a href="#" className="text-hero-foreground hover:text-gold transition-colors"><Facebook size={20} /></a>
-                <a href="#" className="text-hero-foreground hover:text-gold transition-colors"><Twitter size={20} /></a>
-                <a href="#" className="text-hero-foreground hover:text-gold transition-colors"><Linkedin size={20} /></a>
+                <a href="#" onClick={handleSocialClick("Facebook")} className="text-hero-foreground hover:text-gold transition-colors"><Facebook size={20} /></a>
+                <a href="#" onClick={handleSocialClick("Twitter")} className="text-hero-foreground hover:text-gold transition-colors"><Twitter size={20} /></a>
+                <a href="#" onClick={handleSocialClick("LinkedIn")} className="text-hero-foreground hover:text-gold transition-colors"><Linkedin size={20} /></a>
               </div>
             </div>
           </div>
@@ -180,7 +185,7 @@ const ContactPage = () => {
         </div>
       </section>
 
-      {/* Map integration */}
+      {/* Map */}
       <section className="h-[450px] w-full">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15759.56382098485!2d7.4526017!3d9.083896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e0a4f6be4e377%3A0xc03233215284bf40!2sJahi%2C%20Abuja!5e0!3m2!1sen!2sng!4v1710460000000!5m2!1sen!2sng"

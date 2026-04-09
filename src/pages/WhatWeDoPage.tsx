@@ -28,7 +28,7 @@ const services = [
   {
     icon: BookOpen,
     title: "Education Support",
-    desc: "Scholarships and educational materials for orphans and underprivileged children.",
+    desc: "Scholarships and educational materials for orphans and underprivileged individuals.",
   },
   {
     icon: Users,
@@ -50,7 +50,7 @@ const services = [
 const WhatWeDoPage = () => (
   <div>
     {/* Hero */}
-    <section className="bg-[#172554] py-24 text-white">
+    <section className="bg-hero-bg py-24 text-hero-foreground">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
@@ -60,7 +60,7 @@ const WhatWeDoPage = () => (
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Transforming Lives Across Nigeria
             </h1>
-            <p className="text-white/80 text-lg leading-relaxed">
+            <p className="text-hero-foreground/80 text-lg leading-relaxed">
               Our initiatives reach IDP camps, rural areas, and government
               schools, providing essential services and fostering long-term
               health and well-being.
@@ -78,9 +78,9 @@ const WhatWeDoPage = () => (
     </section>
 
     {/* Services Grid */}
-    <section className="py-24 bg-gray-50">
+    <section className="py-24 bg-section-alt">
       <div className="container mx-auto px-4 lg:px-8">
-        <h2 className="text-4xl font-bold text-[#172554] mb-12">
+        <h2 className="text-4xl font-bold text-primary mb-12">
           How We Make an Impact
         </h2>
         <div className="grid md:grid-cols-3 gap-8">
@@ -122,7 +122,7 @@ const WhatWeDoPage = () => (
           <ProjectCard
             image={awarenessImg}
             title="Monthly Public Awareness"
-            description="Raising awareness about children's needs."
+            description="Raising awareness about hygiene, sanitation, and community welfare."
           />
         </div>
       </div>
