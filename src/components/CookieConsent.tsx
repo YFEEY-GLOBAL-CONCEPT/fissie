@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { X, Cookie } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 
 const COOKIE_KEY = "fissiej_cookie_consent";
 
@@ -10,7 +11,6 @@ const CookieConsent = () => {
   useEffect(() => {
     const consent = localStorage.getItem(COOKIE_KEY);
     if (!consent) {
-      // Show after a short delay for better UX
       const timer = setTimeout(() => setVisible(true), 1500);
       return () => clearTimeout(timer);
     }
@@ -23,6 +23,9 @@ const CookieConsent = () => {
       preferences: { analytics: true, functional: true, marketing: true },
     }));
     setVisible(false);
+    toast.success("Cookies accepted! Thank you for helping us improve your experience.", {
+      duration: 4000,
+    });
   };
 
   const handleDecline = () => {
@@ -32,6 +35,9 @@ const CookieConsent = () => {
       preferences: { analytics: false, functional: true, marketing: false },
     }));
     setVisible(false);
+    toast.info("Cookie preferences saved. Only essential cookies will be used.", {
+      duration: 4000,
+    });
   };
 
   if (!visible) return null;

@@ -43,13 +43,13 @@ const GalleryPage = () => {
             {images.map((img, i) => (
               <div
                 key={i}
-                className="relative group cursor-pointer rounded-xl overflow-hidden"
+                className="relative group cursor-pointer rounded-xl overflow-hidden aspect-square"
                 onClick={() => setLightbox(i)}
               >
                 <img
                   src={img.src}
                   alt={img.caption}
-                  className="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/40 transition-colors flex items-end">
                   <p className="text-primary-foreground text-sm font-medium p-4 opacity-0 group-hover:opacity-100 transition-opacity">
